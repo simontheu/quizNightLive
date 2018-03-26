@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="styles.css">
+<script src="/socket.io/socket.io.js"></script>
+<script src="updater_script.js"></script>
+<h1>PROGRAM:</h1>
+<section class="container">
+    <div class="bevelBoxScore">00:00</div>
+    <div class="bevelBoxHome"><h2>NAVY</h2></div>
+    <div class="bevelBoxScore">10 - 9 </div>
+    <div class="bevelBoxAway"><h2>ARMY</h2></div>
+</section>
+<br><br><br><br><br><br>
+
+<div class="settings">
+    <form action="/somesocketaction">
+    Home Team:
+        <input name="hometeam" type="text">
+        <input type="submit">
+    </form>
+    <form action="/somesocketaction">
+    Away Team:
+        <input name="awayteam" type="text">
+        <input type="submit">
+    </form>
+<table style="text-align:center">
+    <tr>
+        <td>HOME:</td><td>CARD</td><td>AWAY:</td>
+    </tr>
+    <tr>
+        <td><button class="homeButton" onclick="homeScore('-1')">-1</button>
+            <button class="homeButton" onclick="homeScore('+1')">+1</button></td><td></td><td>
+            <button class="awayButton" onclick="awayScore('-1')">-1</button>
+            <button class="awayButton" onclick="awayScore('+1')">+1</button></td>
+    </tr>
+    <tr>
+        <td><button class="homeButton" onclick="homeScore('-3')">-3</button>
+            <button class="homeButton" onclick="homeScore('+3')">+3</button></td><td>
+                <button class="yellowCardButton" onclick="awayScore('+1')"></button></td><td>
+                <button class="awayButton" onclick="awayScore('-3')">-3</button>
+                <button class="awayButton" onclick="awayScore('+3')">+3</button></td>
+        </tr>    
+    </tr>
+    <tr>
+        <td><button class="homeButton" onclick="homeScore('-5')">-5</button>
+            <button class="homeButton" onclick="homeScore('+5')">+5</button></td><td>
+            <button class="redCardButton"></button></td><td>
+            <button class="awayButton" onclick="awayScore('-5')">-5</button>
+            <button class="awayButton" onclick="awayScore('+5')">+5</button>
+        </td>
+    </tr>
+    <tr>
+        <td><button class="homeButton" onclick="homeScore('-7')">-7</button>
+            <button class="homeButton" onclick="homeScore('+7')">+7</button></td><td></td><td>
+             <button class="awayButton" onclick="awayScore('-7')">-7</button>
+             <button class="awayButton" onclick="awayScore('+7')">+7</button></td>
+        </tr>
+</table>
+
+<button class="genericButton" onclick="clockAnim('1')">Clock In</button>
+<button class="genericButton" onclick="clockAnim('0')">Clock Out</button>
+
+<button class="genericButton" onclick="clockTime('1')">Time On</button>
+<button class="genericButton" onclick="clockTime('0')">Time Off</button>
