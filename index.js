@@ -5,11 +5,11 @@ var Timer = require('easytimer');
 
 var timer = new Timer();
 
-app.get('/index', function(req, res){
+app.get('/bP1MDfrdAVXbzQiWP0kH', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/updater', function(req, res){
+app.get('/FcASFUBJP9NLsB9KE9s4', function(req, res){
     res.sendFile(__dirname + '/updater.html');
 });
 
@@ -29,26 +29,40 @@ app.get('/updater_script.js', function(req, res) {
     res.sendFile(__dirname + '/updater_script.js');
 });
 
-app.get('/lib/easytimer/dist/easytimer.min.js', function(req, res) {
-    res.sendFile(__dirname + '/lib/easytimer/dist/easytimer.min.js');
+app.get('/node_modules/easytimer/dist/easytimer.min.js', function(req, res) {
+    res.sendFile(__dirname + '/node_modules/easytimer/dist/easytimer.min.js');
 });
 
 io.on('connection', function(socket){
     socket.on('awayScore', function(msg){
-      console.log('awayScore' +msg );  
       io.emit('awayScore',  msg);
     });
     socket.on('homeScore', function(msg){
-        console.log('homeScore' +msg );
         io.emit('homeScore', msg);
     });
     socket.on('clockAnim', function(msg){
-        console.log('clockAnim' +msg );
         io.emit('clockAnim', msg);
     });
     socket.on('clockTime', function(msg){
-        console.log('clockTime' +msg );
         io.emit('clockTime', msg);
+    });
+    socket.on('timeAnnounce', function(msg){
+        io.emit('timeAnnounce', msg);
+    });
+    socket.on('halfUpdate', function(msg){
+        io.emit('halfUpdate', msg);
+    });
+    socket.on('halfAnnounce', function(msg){
+        io.emit('halfAnnounce', msg);
+    });
+    socket.on('timeAdjust', function(msg){
+        io.emit('timeAdjust', msg);
+    });
+    socket.on('homeScoreUpdate', function(msg){
+        io.emit('homeScoreUpdate', msg);
+    });
+    socket.on('awayScoreUpdate', function(msg){
+        io.emit('awayScoreUpdate', msg);
     });
     console.log('connection received');
 });
