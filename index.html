@@ -1,12 +1,14 @@
 <link rel="stylesheet" href="styles.css">
 <script src="/socket.io/socket.io.js"></script>
+<script src="/node_modules/easytimer/dist/easytimer.min.js"></script>
 <script src="index_script.js"></script>
-<script src="lib/easytimer/dist/easytimer.min.js"></script>
+
 
 <div class="relative" id="scoreClockDiv">
     <img src="/media/clock_static.png" width="857" height="100" alt="" id="clockScoreBackground">
 
-    <p class="absolute-text">1st 00:00</a> </p>
+    <p class="absolute-half" id="halfIndicator">1st</a> </p>
+    <p class="absolute-time" id="clockTime">00:00</a> </p>
     <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
     <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
 

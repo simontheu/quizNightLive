@@ -119,7 +119,7 @@ body
     width:600px;
 }
 
-.absolute-text { 
+.absolute-half { 
     position:absolute;
     bottom:0;
     font-size:48px;
@@ -127,7 +127,20 @@ body
     color: rgba(251,251,251,0.9);
     background: rgba(251,251,251,0.0);
     top: -24px;
-    left: 589px;
+    left: 580px;
+    width:100%;
+    text-align:top-left;
+}
+
+.absolute-time { 
+    position:absolute;
+    bottom:0;
+    font-size:48px;
+    font-family:"Arial";
+    color: rgba(251,251,251,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -24px;
+    left: 680px;
     width:100%;
     text-align:top-left;
 }

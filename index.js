@@ -29,8 +29,8 @@ app.get('/updater_script.js', function(req, res) {
     res.sendFile(__dirname + '/updater_script.js');
 });
 
-app.get('/lib/easytimer/dist/easytimer.min.js', function(req, res) {
-    res.sendFile(__dirname + '/lib/easytimer/dist/easytimer.min.js');
+app.get('/node_modules/easytimer/dist/easytimer.min.js', function(req, res) {
+    res.sendFile(__dirname + '/node_modules/easytimer/dist/easytimer.min.js');
 });
 
 io.on('connection', function(socket){
@@ -49,6 +49,26 @@ io.on('connection', function(socket){
     socket.on('clockTime', function(msg){
         console.log('clockTime' +msg );
         io.emit('clockTime', msg);
+    });
+    socket.on('timeAnnounce', function(msg){
+        console.log('timeAnnounce' +msg );
+        io.emit('timeAnnounce', msg);
+    });
+    socket.on('halfUpdate', function(msg){
+        console.log('halfUpdate' +msg );
+        io.emit('halfUpdate', msg);
+    });
+    socket.on('timeAdjust', function(msg){
+        console.log('timeAdjust' +msg );
+        io.emit('timeAdjust', msg);
+    });
+    socket.on('homeScoreUpdate', function(msg){
+        console.log('homeScoreUpdate' +msg );
+        io.emit('homeScoreUpdate', msg);
+    });
+    socket.on('awayScoreUpdate', function(msg){
+        console.log('awayScoreUpdate' +msg );
+        io.emit('awayScoreUpdate', msg);
     });
     console.log('connection received');
 });

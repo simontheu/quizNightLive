@@ -2,25 +2,21 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="updater_script.js"></script>
 <h1>PROGRAM:</h1>
-<section class="container">
-    <div class="bevelBoxScore">00:00</div>
-    <div class="bevelBoxHome"><h2>NAVY</h2></div>
-    <div class="bevelBoxScore">10 - 9 </div>
-    <div class="bevelBoxAway"><h2>ARMY</h2></div>
-</section>
-<br><br><br><br><br><br>
+
+<div class="relative" id="scoreClockDiv">
+    <img src="/media/clock_static.png" width="857" height="100" alt="" id="clockScoreBackground">
+
+    <p class="absolute-half">1st</a> </p>
+    <p class="absolute-time" id="clockTime">00:00</a> </p>
+    <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
+    <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
+
+</div>
+
+<br><br><br>
 
 <div class="settings">
-    <form action="/somesocketaction">
-    Home Team:
-        <input name="hometeam" type="text">
-        <input type="submit">
-    </form>
-    <form action="/somesocketaction">
-    Away Team:
-        <input name="awayteam" type="text">
-        <input type="submit">
-    </form>
+
 <table style="text-align:center">
     <tr>
         <td>HOME:</td><td>CARD</td><td>AWAY:</td>
@@ -54,9 +50,17 @@
              <button class="awayButton" onclick="awayScore('+7')">+7</button></td>
         </tr>
 </table>
-
+<br><br>
 <button class="genericButton" onclick="clockAnim('1')">Clock In</button>
 <button class="genericButton" onclick="clockAnim('0')">Clock Out</button>
-
+<br><br>
 <button class="genericButton" onclick="clockTime('1')">Time On</button>
 <button class="genericButton" onclick="clockTime('0')">Time Off</button>
+<button class="genericButton" onclick="clockTime('2')">Reset</button>
+<button class="genericButton" onclick="halfUpdate('1')">1st Half</button>
+<button class="genericButton" onclick="halfUpdate('2')">2nd Half</button><br><br>
+<button class="genericButton" onclick="timeAdjust('-60')">-1 Min</button>
+<button class="genericButton" onclick="timeAdjust('+60')">+1 Min</button>
+<button class="genericButton" onclick="timeAdjust('-1')">-1 Sec</button>
+<button class="genericButton" onclick="timeAdjust('+1')">+1 Sec</button>
+</div>
