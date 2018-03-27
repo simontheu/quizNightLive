@@ -2,7 +2,7 @@ var socket = io();
 
 
 //Outgoing updates to index
-function homeScore(scoreChange) {
+function homeScore(scoreChange) { 
   socket.emit('homeScore',scoreChange);
 }
 

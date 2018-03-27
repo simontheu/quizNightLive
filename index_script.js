@@ -99,4 +99,3 @@ function updateVisibleTime()
   document.getElementById("clockTime").textContent =  timeString;
   socket.emit('timeAnnounce',timeString);
 }
-
