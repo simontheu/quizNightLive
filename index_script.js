@@ -18,10 +18,10 @@ socket.on('awayScore', function(msg){
     scoreText = String(scoreNum);
   }
   document.getElementById("awayScoreVal").textContent =  scoreText;
+  document.getElementById("awayScoreLower3rdVal").textContent =  scoreText;
 
   socket.emit('awayScoreUpdate', scoreText);
-  //document.getElementById("clockScoreBackground").className = "rotateIn";
-  //document.getElementById("clockScoreBackground").style.opacity = 1;
+
 });
 
 socket.on('homeScore', function(msg){
@@ -33,19 +33,28 @@ socket.on('homeScore', function(msg){
     scoreText = String(scoreNum);
   }
   document.getElementById("homeScoreVal").textContent =  scoreText;
+  document.getElementById("homeScoreLower3rdVal").textContent =  scoreText;
 
   socket.emit('homeScoreUpdate', scoreText);
 
-  //document.getElementById("clockScoreBackground").className = "rotateOut";
-  //document.getElementById("clockScoreBackground").style.opacity = 0;
 });
 
 socket.on('clockAnim', function(msg){
   //document.getElementById("clockScoreBackground").className = "rotateOut";
   if (Number(msg) == 1) {
-    document.getElementById("scoreClockDiv").style.opacity = 1;
+    document.getElementById("scoreClockDiv").className = "rotateIn";
   } else {
-    document.getElementById("scoreClockDiv").style.opacity = 0;
+    document.getElementById("scoreClockDiv").className = "rotateOut";
+  }
+  
+});
+
+socket.on('clockAnim', function(msg){
+  //document.getElementById("clockScoreBackground").className = "rotateOut";
+  if (Number(msg) == 1) {
+    document.getElementById("lowerThirdScoreDiv").className = "slideIn";
+  } else {
+    document.getElementById("lowerThirdScoreDiv").className = "slideOut";
   }
   
 });

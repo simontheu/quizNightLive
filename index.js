@@ -5,11 +5,11 @@ var Timer = require('easytimer');
 
 var timer = new Timer();
 
-app.get('/bP1MDfrdAVXbzQiWP0kH', function(req, res){
+app.get('/index', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/FcASFUBJP9NLsB9KE9s4', function(req, res){
+app.get('/updater', function(req, res){
     res.sendFile(__dirname + '/updater.html');
 });
 
@@ -19,6 +19,14 @@ app.get('/styles.css', function(req, res) {
 
 app.get('/media/clock_static.png', function(req, res) {
     res.sendFile(__dirname + '/media/clock_static.png');
+});
+
+app.get('/media/half_time_lower_3rd.png', function(req, res) {
+    res.sendFile(__dirname + '/media/half_time_lower_3rd.png');
+});
+
+app.get('/media/full_time_lower_3rd.png', function(req, res) {
+    res.sendFile(__dirname + '/media/full_time_lower_3rd.png');
 });
 
 app.get('/index_script.js', function(req, res) {
@@ -63,6 +71,9 @@ io.on('connection', function(socket){
     });
     socket.on('awayScoreUpdate', function(msg){
         io.emit('awayScoreUpdate', msg);
+    });
+    socket.on('lowerThirdScore', function(msg){
+        io.emit('lowerThirdScore', msg);
     });
     console.log('connection received');
 });
