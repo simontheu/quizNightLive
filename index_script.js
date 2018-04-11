@@ -40,27 +40,40 @@ socket.on('homeScore', function(msg){
 });
 
 socket.on('clockAnim', function(msg){
-  //document.getElementById("clockScoreBackground").className = "rotateOut";
   if (Number(msg) == 1) {
     document.getElementById("scoreClockDiv").className = "rotateIn";
+    socket.emit('clockOnAirAnnounce',1);
   } else {
     document.getElementById("scoreClockDiv").className = "rotateOut";
+    socket.emit('clockOnAirAnnounce',0);
+  }
+});
+
+socket.on('lowerThirdScore', function(msg){
+  if (Number(msg) == 1) {
+    document.getElementById("lowerThirdScoreDiv").className = "lowerThirdScoreIn";
+    socket.emit("lowerThirdScoreOnAirAnnounce", 1);
+  } else {
+    document.getElementById("lowerThirdScoreDiv").className = "lowerThirdScoreOut";
+    socket.emit("lowerThirdScoreOnAirAnnounce", 0);
   }
   
 });
 
-socket.on('clockAnim', function(msg){
-  //document.getElementById("clockScoreBackground").className = "rotateOut";
+socket.on('setLowerThirdScoreBackground', function(msg){
+  console.log("test...");
+
   if (Number(msg) == 1) {
-    document.getElementById("lowerThirdScoreDiv").className = "slideIn";
+    document.getElementById("lowerThirdScoreBackground").src = "/media/half_time_lower_3rd.png";
+    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/half_time_lower_3rd.png")
   } else {
-    document.getElementById("lowerThirdScoreDiv").className = "slideOut";
+    document.getElementById("lowerThirdScoreBackground").src = "/media/full_time_lower_3rd.png";
+    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/full_time_lower_3rd.png")
   }
   
 });
 
 socket.on('clockTime', function(msg){
-  //document.getElementById("clockScoreBackground").className = "rotateOut";
   if (Number(msg) == 1) {
     //Start Clock
     timer.start();
@@ -103,7 +116,16 @@ socket.on('timeAdjust', function(msg){
 
 function updateVisibleTime()
 {
-  var timeString = timer.getTimeValues().toString().substring(3);
+  var timeString;
+  if (timer.getTimeValues().hours > 0) {
+    console.log("oh shit");
+    var minutes = String(timer.getTimeValues().minutes + (60 * timer.getTimeValues().hours)).padStart(2,"0");
+    var seconds = String(timer.getTimeValues().seconds).padStart(2,"0");
+    timeString = minutes + ":" + seconds;
+
+  } else {
+    timeString = timer.getTimeValues().toString().substring(3);
+  }
   
   document.getElementById("clockTime").textContent =  timeString;
   socket.emit('timeAnnounce',timeString);

@@ -1,6 +1,7 @@
 :root {
     --home-color:#59BDF1;
     --away-color:#D31F2C;
+    font-size: 30px;
 }
 /*
     var(--home-color);
@@ -15,7 +16,7 @@ body
 
 .settings
 {
-    font-size: 30px;
+
 }
 
 .homeButton {
@@ -75,9 +76,10 @@ body
     padding: 15px 25px;
     text-align: center;
     font-size: 30px;
+    width: 200px;
     cursor: pointer;
 }
-
+/*
 .bevelBoxScore
 {
     width: 80px;
@@ -94,7 +96,7 @@ body
     -moz-box-shadow: inset 4px 4px 4px rgba(255, 255, 255, .4), inset -4px -4px 4px rgba(0, 0, 0, .4);
     float: left;
 }
-
+*/
 .rotateIn {
     animation-name: scoreClockRotateIn;
     transform-origin: top left;
@@ -130,6 +132,63 @@ body
 .relative{
     position:relative;
     width:600px;
+    opacity: 0;
+}
+
+.relativePreview {
+    position:relative;
+    width:600px;
+}
+
+.relative-lower-3rd {
+    position: absolute;
+    align-self: center;
+    left: 4%;
+    margin-left: -240px;
+    bottom: 8%;
+    width:480px;
+    opacity: 0;
+}
+
+.lowerThirdScoreIn {
+    animation-name: lowerThirdSlideIn;
+    position: absolute;
+    align-self: center;
+    animation-duration: 0.75s;
+    left: 47%;
+    margin-left: -240px;
+    bottom: 8%;
+    width:480px;
+}
+
+.lowerThirdScoreOut{
+    animation-name: lowerThirdSlideOut;
+    position: absolute;
+    align-self: center;
+    animation-duration: 0.75s;
+    opacity: 0;
+    left: 47%;
+    margin-left: -240px;
+    bottom: 8%;
+    width:480px;
+}
+
+@keyframes lowerThirdSlideIn {
+    0% {transform: scale(2)};
+    5% {transform: rotateX(90deg); opacity: 0;}
+    30% {transform: rotateX(90deg); opacity: 1;}
+    99% {transform: rotateX(0deg); opacity: 1;}
+    100% {transform: rotateX(0deg); opacity: 1;}
+}
+
+@keyframes lowerThirdSlideOut {
+    0% {transform: rotateX(0deg); opacity: 1;}
+    1% {transform: rotateX(0deg); opacity: 1;}
+    60% {transform: rotateX(90deg); opacity: 1;}
+    90% {transform: rotateX(90deg); opacity: 1;}
+    100% { opacity: 1;}
+    100% { opacity: 0;}
+    
 }
 
 .absolute-half { 
@@ -192,7 +251,7 @@ body
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
     top: 36px;
-    left: -170px;
+    left: -110px;
     width:100%;
     text-align: center;
 }
@@ -205,9 +264,50 @@ body
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
     top: 36px;
-    left: 168;
+    left: 223;
     width:100%;
     text-align: center;
+}
+
+.scoreButtons {
+    float: left;
+    width: 40%;
+    margin: auto;
+}
+
+.lowerThirdPreview {
+    float: left;
+    width: 60%;
+    margin: auto; 
+}
+
+/* DivTable.com */
+.divScoreTable {
+	display: table;
+	width: 70%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+    border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+}
+.divTableBody {
+	display: table-row-group;
 }
 
 .absolute-text a{font-size:16px; color:#b92b27;}

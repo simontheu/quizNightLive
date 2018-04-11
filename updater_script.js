@@ -22,6 +22,14 @@ function halfUpdate(half) {
   socket.emit('halfUpdate',half);
 }
 
+function lowerThirdScore(direction) {
+  socket.emit('lowerThirdScore',direction);
+}
+
+function setLowerThirdScoreBackground(half) {
+  socket.emit('setLowerThirdScoreBackground',half);
+}
+
 function timeAdjust() {
   //Send the text box value
   var adjust = document.getElementById("timeAdjustText").value;
@@ -44,4 +52,26 @@ socket.on('awayScoreUpdate', function(msg){
 
 socket.on('homeScoreUpdate', function(msg){
   document.getElementById("homeScoreVal").textContent =  msg;
+});
+
+socket.on('lowerThirdScoreBackgroundAnnounce', function(msg){
+  document.getElementById("lowerThirdScoreBackground").src = msg;
+});
+
+socket.on('lowerThirdScoreOnAirAnnounce', function(msg){
+  if (msg){
+    document.getElementById("lowerThirdScoreBackground").style.backgroundColor = "#ff0000";
+  } else {
+    document.getElementById("lowerThirdScoreBackground").style.backgroundColor = null;
+  }
+  
+});
+
+socket.on('clockOnAirAnnounce', function(msg){
+  if (msg){
+    document.getElementById("clockScoreBackground").style.backgroundColor = "#ff0000";
+  } else {
+    document.getElementById("clockScoreBackground").style.backgroundColor = null;
+  }
+  
 });

@@ -1,67 +1,71 @@
 <link rel="stylesheet" href="styles.css">
 <script src="/socket.io/socket.io.js"></script>
 <script src="updater_script.js"></script>
-<h1>PROGRAM:</h1>
+<h4>CLOCK PREVIEW:</h4>
 
-<div class="relative" id="scoreClockDiv">
+<div class="relativePreview" id="scoreClockDiv">
     <img src="/media/clock_static.png" width="857" height="100" alt="" id="clockScoreBackground">
-
-    <p class="absolute-half" id="halfIndicator">1st</a> </p>
-    <p class="absolute-time" id="clockTime">00:00</a> </p>
+    <p class="absolute-half" id="halfIndicator">1st</a></p>
+    <p class="absolute-time" id="clockTime">00:00</a></p>
     <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
     <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
-
 </div>
 
-<br><br><br>
+<br>
 
 <div class="settings">
-
-<table style="text-align:center"> 
-    <tr>
-        <td>HOME:</td><td>AWAY:</td>
-    </tr>
-    <tr>
-        <td><button class="homeButton" onclick="homeScore('-1')">-1</button>
-            <button class="homeButton" onclick="homeScore('+1')">+1</button></td><td>
-            <button class="awayButton" onclick="awayScore('-1')">-1</button>
-            <button class="awayButton" onclick="awayScore('+1')">+1</button></td>
-    </tr>
-    <tr>
-        <td><button class="homeButton" onclick="homeScore('-2')">-2</button>
-            <button class="homeButton" onclick="homeScore('+2')">+2</button></td><td>
-            <button class="awayButton" onclick="awayScore('-2')">-2</button>
-            <button class="awayButton" onclick="awayScore('+2')">+2</button></td>
-    </tr>
-    <tr>
-        <td><button class="homeButton" onclick="homeScore('-3')">-3</button>
-            <button class="homeButton" onclick="homeScore('+3')">+3</button></td><td>
-                <button class="awayButton" onclick="awayScore('-3')">-3</button>
-                <button class="awayButton" onclick="awayScore('+3')">+3</button></td>
-        </tr>    
-    </tr>
-    <tr>
-        <td><button class="homeButton" onclick="homeScore('-5')">-5</button>
-            <button class="homeButton" onclick="homeScore('+5')">+5</button></td>
-            <td>
-            <button class="awayButton" onclick="awayScore('-5')">-5</button>
-            <button class="awayButton" onclick="awayScore('+5')">+5</button>
-        </td>
-    </tr>
-    <tr>
-        <td><button class="homeButton" onclick="homeScore('-7')">-7</button>
-            <button class="homeButton" onclick="homeScore('+7')">+7</button></td><td>
-             <button class="awayButton" onclick="awayScore('-7')">-7</button>
-             <button class="awayButton" onclick="awayScore('+7')">+7</button></td>
-        </tr>
-        <tr>
-            <td><button class="yellowCardButton" onclick="yellowHome('+1')"></button>
-            <button class="redCardButton" onclick="redHome('+1')"></button></td>
-            <td><button class="yellowCardButton" onclick="yellowAway('+1')"></button>
-            <button class="redCardButton" onclick="redAway('+1')"></button></td>
-        </tr>
-</table>
-<br>
+    <div class="scoreButtons">
+            <div class="divScoreTable">
+                <div class="divTableBody">
+                    <div class="divTableRow">
+                        <div class="divTableCell">HOME:</div>
+                        <div class="divTableCell">AWAY:</div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-1)">-1</button><button class="homeButton" onClick="homeScore(1)">+1</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-1)">-1</button><button class="awayButton" onClick="awayScore(1)">+1</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-2)">-2</button><button class="homeButton" onClick="homeScore(2)">+2</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-2)">-2</button><button class="awayButton" onClick="awayScore(2)">+2</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-3)">-3</button><button class="homeButton" onClick="homeScore(3)">+3</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-3)">-3</button><button class="awayButton" onClick="awayScore(3)">+3</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-5)">-5</button><button class="homeButton" onClick="homeScore(5)">+5</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-5)">-5</button><button class="awayButton" onClick="awayScore(5)">+5</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-7)">-7</button><button class="homeButton" onClick="homeScore(7)">+7</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-7)">-7</button><button class="awayButton" onClick="awayScore(7)">+7</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="yellowCardButton" onclick="yellowHome('-1')">-1</button><button class="yellowCardButton" onclick="redHome('+1')">+1</button></div>
+                        <div class="divTableCell"><button class="yellowCardButton" onclick="yellowAway('-1')">-1</button><button class="yellowCardButton" onclick="redAway('+1')">+1</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="redCardButton" onclick="yellowHome('-1')">-1</button><button class="redCardButton" onclick="redHome('-1')">-1</button></div>
+                            <div class="divTableCell"><button class="redCardButton" onclick="yellowAway('-1')">-1</button><button class="redCardButton" onclick="redAway('-1')">-1</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lowerThirdPreview">
+            <h4>LOWER 3RD PREVIEW:</h4>
+            <img src="/media/half_time_lower_3rd.png" width="601" height="237" alt="" id="lowerThirdScoreBackground"><br>
+            
+            <button class="genericButton" onclick="setLowerThirdScoreBackground('1')">1st Half</button>
+            <button class="genericButton" onclick="setLowerThirdScoreBackground('2')">2nd Half</button>
+            <button class="genericButton" onclick="lowerThirdScore('1')">Score Lower Third In</button>
+            <button class="genericButton" onclick="lowerThirdScore('0')">Score Lower Third Out</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <button class="genericButton" onclick="clockAnim('1')">Clock In</button>
 <button class="genericButton" onclick="clockAnim('0')">Clock Out</button>
 <br><br>
@@ -70,14 +74,9 @@
 <button class="genericButton" onclick="clockTime('2')">Reset</button>
 <button class="genericButton" onclick="halfUpdate('1')">1st Half</button>
 <button class="genericButton" onclick="halfUpdate('2')">2nd Half</button><br><br>
-<button class="genericButton" onclick="lowerThirdScore('1')">Score Lower Third In</button>
-<button class="genericButton" onclick="lowerThirdScore('0')">Score Lower Third Out</button>
-<br><br>
-Format MM:SS
-<input class="timeAdjustText" id="timeAdjustText"></input>
-<button class="genericButton" onclick="timeAdjust()">Set Time</button>
+<input class="timeAdjustText" id="timeAdjustText" value="00:00"></input>
+<button class="genericButton" onclick="timeAdjust()">Set Time</button>Format MM:SS
 <br>
 <br>
 Time cannot go over 1 hour, so make second half start from 00:00 to 40:00.
 Yellow and Red Cards Don't work
-</div>

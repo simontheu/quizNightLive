@@ -75,6 +75,18 @@ io.on('connection', function(socket){
     socket.on('lowerThirdScore', function(msg){
         io.emit('lowerThirdScore', msg);
     });
+    socket.on('setLowerThirdScoreBackground', function(msg){
+        io.emit('setLowerThirdScoreBackground', msg);
+    });
+    socket.on('lowerThirdScoreBackgroundAnnounce', function(msg){
+        io.emit('lowerThirdScoreBackgroundAnnounce', msg);
+    });
+    socket.on('lowerThirdScoreOnAirAnnounce', function(msg){
+        io.emit('lowerThirdScoreOnAirAnnounce', msg);
+    });
+    socket.on('clockOnAirAnnounce', function(msg){
+        io.emit('clockOnAirAnnounce', msg);
+    });
     console.log('connection received');
 });
 
