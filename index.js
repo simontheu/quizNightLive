@@ -5,11 +5,11 @@ var Timer = require('easytimer');
 
 var timer = new Timer();
 
-app.get('/index', function(req, res){
+app.get('/EDGdE5RjxK2355hL', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/updater', function(req, res){
+app.get('/LAzahn8RF5a3nv6Z', function(req, res){
     res.sendFile(__dirname + '/updater.html');
 });
 
