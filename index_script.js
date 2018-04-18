@@ -1,7 +1,7 @@
 //Initialise connecton to socket system
 var socket = io();
 
-console.log("TESTING");
+socket.emit('getTeams',0);
 
 var timer = new Timer();
 
@@ -114,6 +114,30 @@ socket.on('timeAdjust', function(msg){
   updateVisibleTime();
 });
 
+socket.on('homeL3', function(msg){
+  var playerNum = teams.home[msg].number;
+  var playerName = teams.home[msg].name;
+  var l3Text = playerNum + " " + playerName;
+  if (document.getElementById("lowerThirdHomePlayerDiv").className == "lowerThirdScoreIn") {
+    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdScoreOut";
+  } else {
+    document.getElementById("homeLower3rdNameVal").textContent = l3Text;
+    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdScoreIn";
+  }
+});
+
+socket.on('awayL3', function(msg){
+  var playerNum = teams.away[msg].number;
+  var playerName = teams.away[msg].name;
+  var l3Text = playerNum + " " + playerName;
+  if (document.getElementById("lowerThirdAwayPlayerDiv").className == "lowerThirdScoreIn") {
+    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdScoreOut";
+  } else {
+    document.getElementById("awayLower3rdNameVal").textContent = l3Text;
+    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdScoreIn";
+  }
+});
+
 function updateVisibleTime()
 {
   var timeString;
@@ -130,3 +154,8 @@ function updateVisibleTime()
   document.getElementById("clockTime").textContent =  timeString;
   socket.emit('timeAnnounce',timeString);
 }
+
+socket.on('gotTeams', function(msg){
+  console.log("got teams", msg);
+  teams = msg;
+});

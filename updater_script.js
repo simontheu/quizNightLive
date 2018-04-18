@@ -1,5 +1,6 @@
 var socket = io();
 
+socket.emit('getTeams');
 
 //Outgoing updates to index
 function homeScore(scoreChange) { 
@@ -28,6 +29,14 @@ function lowerThirdScore(direction) {
 
 function setLowerThirdScoreBackground(half) {
   socket.emit('setLowerThirdScoreBackground',half);
+}
+
+function homeL3(playerNumber) {
+  socket.emit('homeL3',playerNumber);
+}
+
+function awayL3(playerNumber) {
+  socket.emit('awayL3',playerNumber);
 }
 
 function timeAdjust() {
@@ -74,4 +83,25 @@ socket.on('clockOnAirAnnounce', function(msg){
     document.getElementById("clockScoreBackground").style.backgroundColor = null;
   }
   
+});
+
+socket.on('gotTeams', function(msg){
+  console.log(msg.home);
+  //Sort home player buttons
+  var index = 1;
+  msg.home.forEach(element => {
+    var docElem = document.getElementById("homePlayer" + index);
+    console.log( element.number);
+    docElem.textContent = element.number;
+    index++;
+  });
+
+  //Populate away player buttons
+  index = 1;
+  msg.away.forEach(element => {
+    var docElem = document.getElementById("awayPlayer" + index);
+    console.log( element.number);
+    docElem.textContent = element.number;
+    index++;
+  });
 });

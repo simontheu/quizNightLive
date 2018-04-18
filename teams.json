@@ -1,0 +1,153 @@
+{
+    "home": [
+        {
+            "number":"1",
+            "name":"SGT Titchard-Jones"},
+        {
+            "number":"2",
+            "name":"LSGT Dwyer"},
+        {
+            "number":"3",
+            "name":"CPL Smith"},
+        {
+            "number":"4",
+            "name":"LCPL Smith"},
+        {
+            "number":"5",
+            "name":"CPL Parkins"},
+        {
+            "number":"6",
+            "name":"LCPL Veikune"},
+        {
+            "number":"7",
+            "name":"CPL Dawson"},
+        {
+            "number":"8",
+            "name":"GNR Nayalo"},
+        {
+            "number":"9",
+            "name":"CPL EVANS"},
+        {
+            "number":"10",
+            "name":"LCPL Dixon (C)"},
+        {
+            "number":"11",
+            "name":"LBDR O'Rielly"},
+        {
+            "number":"12",
+            "name":"LT Simpson"},
+        {
+            "number":"13",
+            "name":"LCPL Leathem"},
+        {
+            "number":"14",
+            "name":"SIG Davetananivalu"},
+        {
+            "number":"15",
+            "name":"PTE Bulumakau"},
+        {
+            "number":"16",
+            "name":"BDR Austin (VC)"},
+        {
+            "number":"17",
+            "name":"BDR Gill"},
+        {
+            "number":"18",
+            "name":"SGT Dowding"},
+        {
+            "number":"19",
+            "name":"CAPT Cross"},
+        {
+            "number":"20",
+            "name":"SGT Taura"},
+        {
+            "number":"21",
+            "name":"LBDR Vunivesilevu"},
+        {
+            "number":"22",
+            "name":"BDR Davies"},
+        {
+            "number":"23",
+            "name":"LCPL Wilson"},
+        {
+            "number":"24",
+            "name":"CAPT Miller"},
+        {
+            "number":"25",
+            "name":"LCPL Wheeldon"}
+        ],
+    "away": [
+        {
+            "number":"1",
+            "name":"Van Wyk"},
+        {
+            "number":"2",
+            "name":"Fish"},
+        {
+            "number":"3",
+            "name":"Painter"},
+        {
+            "number":"4",
+            "name":"Moon"},
+        {
+            "number":"5",
+            "name":"D.Onojaife"},
+        {
+            "number":"6",
+            "name":"Allman"},
+        {
+            "number":"7",
+            "name":"Ryan"},
+        {
+            "number":"8",
+            "name":"Ludlam"},
+        {
+            "number":"9",
+            "name":"Kessell"},
+        {
+            "number":"10",
+            "name":"Grayson"},
+        {
+            "number":"11",
+            "name":"Tuitavake"},
+        {
+            "number":"12",
+            "name":"Stephenson"},
+        {
+            "number":"13",
+            "name":"Dingwall"},
+        {
+            "number":"14",
+            "name":"Elliott"},
+        {
+            "number":"15",
+            "name":"Emery"},
+        {
+            "number":"16",
+            "name":"Ma'asi"},
+        {
+            "number":"17",
+            "name":"Beesley"},
+        {
+            "number":"18",
+            "name":"Collins"},
+        {
+            "number":"19",
+            "name":"Trinder"},
+        {
+            "number":"20",
+            "name":"Wallace"},
+        {
+            "number":"21",
+            "name":"Tupai"},
+        {
+            "number":"22",
+            "name":"Estelles"},
+        {
+            "number":"23",
+            "name":"Strachan"},
+        {
+            "number":"24",
+            "name":"Sleightholme"}
+        ]
+}

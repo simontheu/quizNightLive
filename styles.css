@@ -1,5 +1,5 @@
 :root {
-    --home-color:#59BDF1;
+    --home-color:#33AA33;
     --away-color:#D31F2C;
     font-size: 30px;
 }
@@ -196,10 +196,10 @@ body
     bottom:0;
     font-size:48px;
     font-family:"Arial";
-    color: rgba(251,251,251,0.9);
+    color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -25px;
-    left: 580px;
+    top: -37px;
+    left: 600px;
     width:100%;
     text-align:top-left;
 }
@@ -209,10 +209,10 @@ body
     bottom:0;
     font-size:48px;
     font-family:"Arial";
-    color: rgba(251,251,251,0.9);
+    color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -25px;
-    left: 680px;
+    top: -37px;
+    left: 697px;
     width:100%;
     text-align:top-left;
 }
@@ -224,8 +224,8 @@ body
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -24px;
-    left: -5px;
+    top: -37px;
+    left: -59px;
     width:100%;
     text-align: center;
 }
@@ -237,8 +237,8 @@ body
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -24px;
-    left: 202;
+    top: -37px;
+    left: 223;
     width:100%;
     text-align: center;
 }
@@ -246,12 +246,12 @@ body
 .absolute-lower-3rd-left-score { 
     position:absolute;
     bottom:0;
-    font-size:60px;
+    font-size:36px;
     font-family:"Arial";
-    color: rgba(0,0,0,0.9);
+    color: rgba(251,251,251,0.9);
     background: rgba(251,251,251,0.0);
-    top: 36px;
-    left: -110px;
+    top: 155px;
+    left: -43px;
     width:100%;
     text-align: center;
 }
@@ -259,14 +259,40 @@ body
 .absolute-lower-3rd-right-score { 
     position:absolute;
     bottom:0;
-    font-size:60px;
+    font-size:36px;
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: 36px;
-    left: 223;
+    top: 155px;
+    left: 165;
     width:100%;
     text-align: center;
+}
+
+.absolute-lower-3rd-home-player-name { 
+    position:absolute;
+    bottom:0;
+    font-size:40px;
+    font-family:"Arial";
+    color: rgba(251,251,251,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -20px;
+    left: 125px;
+    width:100%;
+    text-align: left;
+}
+
+.absolute-lower-3rd-away-player-name { 
+    position:absolute;
+    bottom:0;
+    font-size:40px;
+    font-family:"Arial";
+    color: rgba(251,251,251,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -20px;
+    left: 125px;
+    width:100%;
+    text-align: left;
 }
 
 .scoreButtons {

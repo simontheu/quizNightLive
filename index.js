@@ -2,14 +2,17 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var Timer = require('easytimer'); 
+var teams = require('./teams.json');
 
 var timer = new Timer();
 
-app.get('/EDGdE5RjxK2355hL', function(req, res){
+console.log(teams.away);
+
+app.get('/index', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/LAzahn8RF5a3nv6Z', function(req, res){
+app.get('/updater', function(req, res){
     res.sendFile(__dirname + '/updater.html');
 });
 
@@ -27,6 +30,14 @@ app.get('/media/half_time_lower_3rd.png', function(req, res) {
 
 app.get('/media/full_time_lower_3rd.png', function(req, res) {
     res.sendFile(__dirname + '/media/full_time_lower_3rd.png');
+});
+
+app.get('/media/SaintsL3.png', function(req, res) {
+    res.sendFile(__dirname + '/media/SaintsL3.png');
+});
+
+app.get('/media/ArmyL3.png', function(req, res) {
+    res.sendFile(__dirname + '/media/ArmyL3.png');
 });
 
 app.get('/index_script.js', function(req, res) {
@@ -87,6 +98,16 @@ io.on('connection', function(socket){
     socket.on('clockOnAirAnnounce', function(msg){
         io.emit('clockOnAirAnnounce', msg);
     });
+    socket.on('homeL3', function(msg){
+        io.emit('homeL3', msg);
+    });
+    socket.on('awayL3', function(msg){
+        io.emit('awayL3', msg);
+    });
+    socket.on('getTeams', function(){
+        console.log(teams);
+        io.emit('gotTeams', teams);
+    })
     console.log('connection received');
 });
 
