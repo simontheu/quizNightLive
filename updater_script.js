@@ -108,6 +108,7 @@ function changeClockNames() {
   document.getElementById("clock-team-right").textContent = rightName
 }
 
+
 /*
 socket.on('gotTeams', function(msg){
   console.log(msg.home);
