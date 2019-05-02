@@ -20,24 +20,24 @@ app.get('/styles.css', function(req, res) {
     res.sendFile(__dirname + '/styles.css');
 });
 
-app.get('/media/clock_static.png', function(req, res) {
-    res.sendFile(__dirname + '/media/clock_static.png');
+app.get('/media/Scorebug.png', function(req, res) {
+    res.sendFile(__dirname + '/media/Scorebug.png');
 });
 
-app.get('/media/half_time_lower_3rd.png', function(req, res) {
-    res.sendFile(__dirname + '/media/half_time_lower_3rd.png');
+app.get('/media/HalfTime.png', function(req, res) {
+    res.sendFile(__dirname + '/media/HalfTime.png');
 });
 
-app.get('/media/full_time_lower_3rd.png', function(req, res) {
-    res.sendFile(__dirname + '/media/full_time_lower_3rd.png');
+app.get('/media/FullTime.png', function(req, res) {
+    res.sendFile(__dirname + '/media/FullTime.png');
 });
 
-app.get('/media/SaintsL3.png', function(req, res) {
-    res.sendFile(__dirname + '/media/SaintsL3.png');
+app.get('/media/LowerThird.png', function(req, res) {
+    res.sendFile(__dirname + '/media/LowerThird.png');
 });
 
-app.get('/media/ArmyL3.png', function(req, res) {
-    res.sendFile(__dirname + '/media/ArmyL3.png');
+app.get('/media/LowerThird.png', function(req, res) {
+    res.sendFile(__dirname + '/media/LowerThird.png');
 });
 
 app.get('/index_script.js', function(req, res) {

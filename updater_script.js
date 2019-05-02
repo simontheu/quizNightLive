@@ -12,7 +12,12 @@ function awayScore(scoreChange) {
 }
 
 function clockAnim(direction) {
-  socket.emit('clockAnim',direction);
+  var teamNameLeft = document.getElementById("teamNameLeft").value;
+  var teamNameRight = document.getElementById("teamNameRight").value;
+  
+
+
+  socket.emit('clockAnim',{ direction: direction, nameLeft: teamNameLeft, nameRight: teamNameRight} );
 }
 
 function clockTime(action) {
@@ -24,7 +29,12 @@ function halfUpdate(half) {
 }
 
 function lowerThirdScore(direction) {
-  socket.emit('lowerThirdScore',direction);
+  var teamNameLeft = document.getElementById("teamNameLongLeft").value;
+  var teamNameRight = document.getElementById("teamNameLongRight").value;
+  
+
+  var msg = {direction: direction, "teamNameLeft": teamNameLeft, "teamNameRight":teamNameRight }
+  socket.emit('lowerThirdScore',msg);
 }
 
 function setLowerThirdScoreBackground(half) {
@@ -32,13 +42,19 @@ function setLowerThirdScoreBackground(half) {
 }
 
 function homeL3(playerNumber) {
-  socket.emit('homeL3',playerNumber);
+  if (playerNumber == 0) {
+    var name = document.getElementById("name1text").value;
+  } else {
+    var name = document.getElementById("name2text").value;
+  }
+  console.log(name);
+  socket.emit('homeL3',name);
 }
-
+/*
 function awayL3(playerNumber) {
   socket.emit('awayL3',playerNumber);
 }
-
+*/
 function timeAdjust() {
   //Send the text box value
   var adjust = document.getElementById("timeAdjustText").value;
@@ -84,7 +100,7 @@ socket.on('clockOnAirAnnounce', function(msg){
   }
   
 });
-
+/*
 socket.on('gotTeams', function(msg){
   console.log(msg.home);
   //Sort home player buttons
@@ -105,3 +121,4 @@ socket.on('gotTeams', function(msg){
     index++;
   });
 });
+*/

@@ -40,7 +40,9 @@ socket.on('homeScore', function(msg){
 });
 
 socket.on('clockAnim', function(msg){
-  if (Number(msg) == 1) {
+  document.getElementById("clock-team-left").textContent = msg.nameLeft
+  document.getElementById("clock-team-right").textContent = msg.nameRight
+  if (Number(msg.direction) == 1) {
     document.getElementById("scoreClockDiv").className = "rotateIn";
     socket.emit('clockOnAirAnnounce',1);
   } else {
@@ -50,7 +52,10 @@ socket.on('clockAnim', function(msg){
 });
 
 socket.on('lowerThirdScore', function(msg){
-  if (Number(msg) == 1) {
+  console.log(msg)
+  document.getElementById("scoreLower3rdTeamLeft").textContent = msg.teamNameLeft;
+  document.getElementById("scoreLower3rdTeamRight").textContent = msg.teamNameRight;
+  if (Number(msg.direction) == 1) {
     document.getElementById("lowerThirdScoreDiv").className = "lowerThirdScoreIn";
     socket.emit("lowerThirdScoreOnAirAnnounce", 1);
   } else {
@@ -61,14 +66,13 @@ socket.on('lowerThirdScore', function(msg){
 });
 
 socket.on('setLowerThirdScoreBackground', function(msg){
-  console.log("test...");
 
   if (Number(msg) == 1) {
-    document.getElementById("lowerThirdScoreBackground").src = "/media/half_time_lower_3rd.png";
-    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/half_time_lower_3rd.png")
+    document.getElementById("lowerThirdScoreBackground").src = "/media/HalfTime.png";
+    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/HalfTime.png")
   } else {
-    document.getElementById("lowerThirdScoreBackground").src = "/media/full_time_lower_3rd.png";
-    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/full_time_lower_3rd.png")
+    document.getElementById("lowerThirdScoreBackground").src = "/media/FullTime.png";
+    socket.emit("lowerThirdScoreBackgroundAnnounce","/media/FullTime.png")
   }
   
 });
@@ -115,14 +119,15 @@ socket.on('timeAdjust', function(msg){
 });
 
 socket.on('homeL3', function(msg){
-  var playerNum = teams.home[msg].number;
-  var playerName = teams.home[msg].name;
-  var l3Text = playerNum + " " + playerName;
-  if (document.getElementById("lowerThirdHomePlayerDiv").className == "lowerThirdScoreIn") {
-    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdScoreOut";
+  //var playerNum = teams.home[msg].number;
+  //var playerName = teams.home[msg].name;
+  var l3Text = msg;//playerNum + " " + playerName;
+  console.log(msg)
+  if (document.getElementById("lowerThirdHomePlayerDiv").className == "lowerThirdNameIn") {
+    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdNameOut";
   } else {
     document.getElementById("homeLower3rdNameVal").textContent = l3Text;
-    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdScoreIn";
+    document.getElementById("lowerThirdHomePlayerDiv").className = "lowerThirdNameIn";
   }
 });
 
@@ -130,11 +135,12 @@ socket.on('awayL3', function(msg){
   var playerNum = teams.away[msg].number;
   var playerName = teams.away[msg].name;
   var l3Text = playerNum + " " + playerName;
-  if (document.getElementById("lowerThirdAwayPlayerDiv").className == "lowerThirdScoreIn") {
-    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdScoreOut";
+  console.log(msg)
+  if (document.getElementById("lowerThirdAwayPlayerDiv").className == "lowerThirdNameIn") {
+    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdNameOut";
   } else {
     document.getElementById("awayLower3rdNameVal").textContent = l3Text;
-    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdScoreIn";
+    document.getElementById("lowerThirdAwayPlayerDiv").className = "lowerThirdNameIn";
   }
 });
 
