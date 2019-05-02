@@ -4,12 +4,15 @@
 <h4>CLOCK PREVIEW:</h4>
 
 <div class="relativePreview" id="scoreClockDiv">
-    <img src="/media/clock_static.png" width="857" height="73" alt="" id="clockScoreBackground">
-    <p class="absolute-half" id="halfIndicator">1st</a></p>
-    <p class="absolute-time" id="clockTime">00:00</a></p>
-    <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
-    <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
-</div>
+        <img src="/media/Scorebug.png" width="857" height="73" alt="" id="clockScoreBackground">
+    
+        <!--<p class="absolute-half" id="halfIndicator">1st</a> </p>-->
+        <p class="absolute-time" id="clockTime">00:00</a> </p>
+        <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
+        <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
+        <p class="absolute-team-left" id="clock-team-left"></a> </p>
+        <p class="absolute-team-right"id="clock-team-right"></a> </p>
+    </div>
 
 <br>
 
@@ -74,7 +77,7 @@
         </div>
         <div class="lowerThirdPreview">
             <h4>LOWER 3RD PREVIEW:</h4>
-            <img src="/media/half_time_lower_3rd.png" width="601" height="237" alt="" id="lowerThirdScoreBackground"><br>         
+            <img src="/media/HalfTime.png" width="501" height="207" alt="" id="lowerThirdScoreBackground"><br>         
             <button class="genericButton" onclick="setLowerThirdScoreBackground('1')">1st Half</button>
             <button class="genericButton" onclick="setLowerThirdScoreBackground('2')">2nd Half</button>
             <button class="genericButton" onclick="lowerThirdScore('1')">Score Lower Third In</button>
@@ -82,59 +85,25 @@
             <div class="divScoreTable">
                 <div class="divTableBody">
                     <div class="divTableRow">
-                        <div class="divTableCell">HOME:<br>
-                            <button class="homeButton" onclick="homeL3('0')" id="homePlayer1">?</button>
-                            <button class="homeButton" onclick="homeL3('1')" id="homePlayer2">?</button>
-                            <button class="homeButton" onclick="homeL3('2')" id="homePlayer3">?</button>
-                            <button class="homeButton" onclick="homeL3('3')" id="homePlayer4">?</button><br>
-                            <button class="homeButton" onclick="homeL3('4')" id="homePlayer5">?</button>
-                            <button class="homeButton" onclick="homeL3('5')" id="homePlayer6">?</button>
-                            <button class="homeButton" onclick="homeL3('6')" id="homePlayer7">?</button>
-                            <button class="homeButton" onclick="homeL3('7')" id="homePlayer8">?</button><br>
-                            <button class="homeButton" onclick="homeL3('8')" id="homePlayer9">?</button>
-                            <button class="homeButton" onclick="homeL3('9')" id="homePlayer10">?</button>
-                            <button class="homeButton" onclick="homeL3('10')" id="homePlayer11">?</button>
-                            <button class="homeButton" onclick="homeL3('11')" id="homePlayer12">?</button><br>
-                            <button class="homeButton" onclick="homeL3('12')" id="homePlayer13">?</button>
-                            <button class="homeButton" onclick="homeL3('13')" id="homePlayer14">?</button>
-                            <button class="homeButton" onclick="homeL3('14')" id="homePlayer15">?</button>
-                            <button class="homeButton" onclick="homeL3('15')" id="homePlayer16">?</button><br>
-                            <button class="homeButton" onclick="homeL3('16')" id="homePlayer17">?</button>
-                            <button class="homeButton" onclick="homeL3('17')" id="homePlayer18">?</button>
-                            <button class="homeButton" onclick="homeL3('18')" id="homePlayer19">?</button>
-                            <button class="homeButton" onclick="homeL3('19')" id="homePlayer20">?</button><br>
-                            <button class="homeButton" onclick="homeL3('20')" id="homePlayer21">?</button>
-                            <button class="homeButton" onclick="homeL3('21')" id="homePlayer22">?</button>
-                            <button class="homeButton" onclick="homeL3('22')" id="homePlayer23">?</button>
-                            <button class="homeButton" onclick="homeL3('23')" id="homePlayer24">?</button><br>
-                            <button class="homeButton" onclick="homeL3('24')" id="homePlayer25">?</button>
+                        <div class="divTableCell">Lower 3rd Names:<br>
+                            <button class="homeButton" onclick="homeL3(0)" id="homePlayer1">Go</button>
+                            <input class="nameEntry" id="name1text" value="1 Joe Bloggs"></input><br><br>
+                            <button class="homeButton" onclick="homeL3(1)" id="homePlayer2">Go</button>
+                            <input class="nameEntry" id="name2text" value="2 Fred Jones"></input>
                         </div>
-                        <div class="divTableCell">AWAY:<br>
-                            <button class="awayButton" onclick="awayL3('0')" id="awayPlayer1">?</button>
-                            <button class="awayButton" onclick="awayL3('1')" id="awayPlayer2">?</button>
-                            <button class="awayButton" onclick="awayL3('2')" id="awayPlayer3">?</button>
-                            <button class="awayButton" onclick="awayL3('3')" id="awayPlayer4">?</button><br>
-                            <button class="awayButton" onclick="awayL3('4')" id="awayPlayer5">?</button>
-                            <button class="awayButton" onclick="awayL3('5')" id="awayPlayer6">?</button>
-                            <button class="awayButton" onclick="awayL3('6')" id="awayPlayer7">?</button>
-                            <button class="awayButton" onclick="awayL3('7')" id="awayPlayer8">?</button><br>
-                            <button class="awayButton" onclick="awayL3('8')" id="awayPlayer9">?</button>
-                            <button class="awayButton" onclick="awayL3('9')" id="awayPlayer10">?</button>
-                            <button class="awayButton" onclick="awayL3('10')" id="awayPlayer11">?</button>
-                            <button class="awayButton" onclick="awayL3('11')" id="awayPlayer12">?</button><br>
-                            <button class="awayButton" onclick="awayL3('12')" id="awayPlayer13">?</button>
-                            <button class="awayButton" onclick="awayL3('13')" id="awayPlayer14">?</button>
-                            <button class="awayButton" onclick="awayL3('14')" id="awayPlayer15">?</button>
-                            <button class="awayButton" onclick="awayL3('15')" id="awayPlayer16">?</button><br>
-                            <button class="awayButton" onclick="awayL3('16')" id="awayPlayer17">?</button>
-                            <button class="awayButton" onclick="awayL3('17')" id="awayPlayer18">?</button>
-                            <button class="awayButton" onclick="awayL3('18')" id="awayPlayer19">?</button>
-                            <button class="awayButton" onclick="awayL3('19')" id="awayPlayer20">?</button><br>
-                            <button class="awayButton" onclick="awayL3('20')" id="awayPlayer21">?</button>
-                            <button class="awayButton" onclick="awayL3('21')" id="awayPlayer22">?</button>
-                            <button class="awayButton" onclick="awayL3('22')" id="awayPlayer23">?</button>
-                            <button class="awayButton" onclick="awayL3('23')" id="awayPlayer24">?</button><br>
-                            <button class="awayButton" onclick="awayL3('24')" id="awayPlayer25">?</button>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><br>TEAM NAMES CLOCK:<br>
+                            <input class="nameEntry" id="teamNameLeft" oninput="changeClockNames()" value="LDON"></input><br>
+                            <input class="nameEntry" id="teamNameRight" oninput="changeClockNames()" value="GESE"></input>
+                        </div><br>
+                    </div>
+                    
+                    <div class="divTableRow">
+                            <div class="divTableCell">TEAM NAMES LOWER:<br>
+                            <input class="nameEntry" id="teamNameLongLeft" value="London Sevens"></input><br>
+                            <input class="nameEntry" id="teamNameLongRight" value="Golden Geese"></input>
+                        </div>
                     </div>
                 </div>
             </div>

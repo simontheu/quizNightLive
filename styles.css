@@ -79,6 +79,17 @@ body
     width: 200px;
     cursor: pointer;
 }
+.nameEntry {
+    background-color:#eeeeee;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 30px;
+    width: 450px;
+    cursor: pointer;
+}
+
 /*
 .bevelBoxScore
 {
@@ -144,8 +155,18 @@ body
     position: absolute;
     align-self: center;
     left: 4%;
-    margin-left: -240px;
+    margin-left: 800px;
     bottom: 8%;
+    width:480px;
+    opacity: 0;
+}
+
+.relative-lower-3rd-name {
+    position: absolute;
+    align-self: center;
+    left: 25%;
+    margin-left: -0px;
+    bottom: 5%;
     width:480px;
     opacity: 0;
 }
@@ -155,9 +176,9 @@ body
     position: absolute;
     align-self: center;
     animation-duration: 0.75s;
-    left: 47%;
-    margin-left: -240px;
-    bottom: 8%;
+    left: 18%;
+    margin-left: -0px;
+    bottom: -5%;
     width:480px;
 }
 
@@ -167,9 +188,32 @@ body
     align-self: center;
     animation-duration: 0.75s;
     opacity: 0;
-    left: 47%;
-    margin-left: -240px;
-    bottom: 8%;
+    left: 18%;
+    margin-left: -0px;
+    bottom: -5%;
+    width:480px;
+}
+
+.lowerThirdNameIn {
+    animation-name: lowerThirdSlideIn;
+    position: absolute;
+    align-self: center;
+    animation-duration: 0.75s;
+    left: 25%;
+    margin-left: -0px;
+    bottom: 5%;
+    width:480px;
+}
+
+.lowerThirdNameOut{
+    animation-name: lowerThirdSlideOut;
+    position: absolute;
+    align-self: center;
+    animation-duration: 0.75s;
+    opacity: 0;
+    left: 25%;
+    margin-left: -0px;
+    bottom: 5%;
     width:480px;
 }
 
@@ -194,12 +238,12 @@ body
 .absolute-half { 
     position:absolute;
     bottom:0;
-    font-size:48px;
+    font-size:35px;
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -37px;
-    left: 600px;
+    top: -15px;
+    left: 460px;
     width:100%;
     text-align:top-left;
 }
@@ -207,12 +251,12 @@ body
 .absolute-time { 
     position:absolute;
     bottom:0;
-    font-size:48px;
+    font-size:55px;
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -37px;
-    left: 697px;
+    top: -50px;
+    left: 480px;
     width:100%;
     text-align:top-left;
 }
@@ -220,78 +264,143 @@ body
 .absolute-left-score { 
     position:absolute;
     bottom:0;
-    font-size:48px;
+    font-size:49px;
     font-family:"Arial";
-    color: rgba(0,0,0,0.9);
+    color: rgba(251,251,251,0.9);
     background: rgba(251,251,251,0.0);
-    top: -37px;
-    left: -59px;
+    top: -40px;
+    left: -385px;
     width:100%;
-    text-align: center;
+    text-align: right;
 }
 
 .absolute-right-score { 
     position:absolute;
     bottom:0;
-    font-size:48px;
+    font-size:49px;
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -37px;
-    left: 223;
+    top: -40px;
+    left: -155px;
+    width:100%;
+    text-align: right;
+}
+
+.absolute-score-divider { 
+    position:absolute;
+    bottom:0;
+    font-size:50px;
+    font-family:"Arial";
+    color: rgba(0,0,0,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -40px;
+    left: 244;
     width:100%;
     text-align: center;
+}
+
+.absolute-team-right { 
+    position:absolute;
+    bottom:0;
+    font-size:49px;
+    font-family:"Arial";
+    color: rgba(0,0,0,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -40px;
+    left: 240px;
+    width:100%;
+    text-align: left;
+}
+
+.absolute-team-left { 
+    position:absolute;
+    bottom:0;
+    font-size:49px;
+    font-family:"Arial";
+    color: rgba(251,251,251,0.9);
+    background: rgba(251,251,251,0.0);
+    top: -40px;
+    left: 10px;
+    width:100%;
+    text-align: left;
 }
 
 .absolute-lower-3rd-left-score { 
     position:absolute;
     bottom:0;
-    font-size:36px;
+    font-size:80px;
     font-family:"Arial";
-    color: rgba(251,251,251,0.9);
+    color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: 155px;
-    left: -43px;
+    top: 425px;
+    left: 110px;
     width:100%;
-    text-align: center;
+    text-align: right;
 }
 
 .absolute-lower-3rd-right-score { 
     position:absolute;
     bottom:0;
-    font-size:36px;
+    font-size:80px;
     font-family:"Arial";
     color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: 155px;
-    left: 165;
+    top: 425px;
+    left: 635px;
     width:100%;
-    text-align: center;
+    text-align: left;
+}
+
+.absolute-lower-3rd-left-team { 
+    position:absolute;
+    bottom:0;
+    font-size:60px;
+    font-family:"Arial";
+    color: rgba(0,0,0,0.9);
+    background: rgba(251,251,251,0.0);
+    top: 320px;
+    left: 30px;
+    width:100%;
+    text-align: right;
+}
+
+.absolute-lower-3rd-right-team { 
+    position:absolute;
+    bottom:0;
+    font-size:60px;
+    font-family:"Arial";
+    color: rgba(0,0,0,0.9);
+    background: rgba(251,251,251,0.0);
+    top: 320px;
+    left: 725px;
+    width:100%;
+    text-align: left;
 }
 
 .absolute-lower-3rd-home-player-name { 
     position:absolute;
     bottom:0;
-    font-size:40px;
+    font-size:56px;
     font-family:"Arial";
-    color: rgba(251,251,251,0.9);
+    color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -20px;
-    left: 125px;
-    width:100%;
+    top: 95px;
+    left: 155px;
+    width:150%;
     text-align: left;
 }
 
 .absolute-lower-3rd-away-player-name { 
     position:absolute;
     bottom:0;
-    font-size:40px;
+    font-size:56px;
     font-family:"Arial";
-    color: rgba(251,251,251,0.9);
+    color: rgba(0,0,0,0.9);
     background: rgba(251,251,251,0.0);
-    top: -20px;
-    left: 125px;
-    width:100%;
+    top: 95px;
+    left: 155px;
+    width:150%;
     text-align: left;
 }
 
