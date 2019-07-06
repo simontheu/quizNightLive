@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="styles.css">
+<script src="/socket.io/socket.io.js"></script>
+<script src="/node_modules/easytimer/dist/easytimer.min.js"></script>
+<script src="index_script.js"></script>
+
+<div class="mainArea" id="mainArea">
+    <!--Embedded Video Link-->
+    <div id="top-banner">
+        <img class="logo" src="/media/QuizNightLogo.png" alt="" id="QuizNightLogo">
+        <!--
+        <div>
+          <ul><li><a href="login">Login</a></li><li style="float: left;"><a href="login">Play The Quiz</a></li></ul>
+        </div>
+        -->
+    </div>
+    <!--Embedded Video Link-->
+    <div class="videoWrapper" id="embeddedVideo">
+        <iframe src="https://www.youtube.com/embed/xcUPjEh9Gy8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="question">
+        Question 1: What is the capital city of x? capital city of x?capital city of x?
+    </div>
+    <div class="answers">
+        <div id="answerA" class="answer1" onclick="answer(1)">
+          <div class="questionLetter">A:</div>
+          <div class="answerMain">Paris</div>
+        </div>  
+        <div id="answerB" class="answer2" onclick="answer(2)">
+          <div class="questionLetter">B:</div>
+          <div class="answerMain">Paris</div>
+        </div>  
+        <div id="answerC" class="answer3" onclick="answer(3)">
+          <div class="questionLetter">C:</div>
+          <div class="answerMain">Paris</div>
+        </div>  
+        <div id="answerD" class="answer4" onclick="answer(4)">
+          <div class="questionLetter">D:</div>
+          <div class="answerMain">Paris</div>
+        </div>  
+<!--        <p><button onclick="animateTimer()">StartTimer</button></p> -->
+    </div>
+    <div class="timerBarContainer">
+        <canvas class="timerBar" id="timerBarCanvas" width="1200px" height="500px"></canvas>
+      </div>
+</div>
+
+<!--Question and Answers Section-->
+
+
+
+
+<script>
+
+function answer(answer) {
+  console.log(answer);
+  switch (answer) {
+    case 1:
+      animateTimer();
+      var answerElement = document.getElementById("answerA");
+      console.log(answerElement);
+      answerElement.style.backgroundColor = "#ff0000";
+      break;
+    case 2:
+      var answerElement = document.getElementById("answerB");
+      console.log(answerElement);
+      answerElement.style.backgroundColor = "#ff0000";
+      break;
+    case 3:
+      var answerElement = document.getElementById("answerC");
+      console.log(answerElement);
+      answerElement.style.backgroundColor = "#ff0000";
+      break;
+    case 4:
+      var answerElement = document.getElementById("answerD");
+      console.log(answerElement);
+      answerElement.style.backgroundColor = "#ff0000";
+      break;
+  }
+}
+
+function animateTimer() {
+  startTime = Date.now();
+  timer = setInterval(frame, 20);
+}
+
+function frame() {
+  var questionLength = 30000;
+  var progess = document.getElementById("progress");
+  elapsedTime = questionLength - (Date.now() - startTime);
+  
+  updateTimerBar((elapsedTime/questionLength));
+
+  if (elapsedTime < 1) {
+    elapsedTime = 0;
+    clearInterval(timer);
+  }
+}
+
+function updateTimerBar(fractionLeft) {
+  var c = document.getElementById("timerBarCanvas");
+  var ctx = c.getContext("2d");
+  var fillWidth = c.width * fractionLeft;
+  ctx.fillRect(0, 0, fillWidth, c.height);
+  ctx.clearRect(fillWidth, 0, c.width, c.height);
+}
+</script>
+
+<style>
+
+
+</style>

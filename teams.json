@@ -1,0 +1,40 @@
+{
+    "Questions": {
+        "1":"What is the capital of Belgium?",
+        "2":"What is the capital of France?",
+        "3":"What is the capital of England?",
+        "4":"What is the capital of Japan?"
+    },
+    "Options": {
+        "1":{
+            "A": "Paris",
+            "B": "Paris1",
+            "C": "Paris2",
+            "D": "Paris3"
+        },
+        "2":{
+            "A": "Paris",
+            "B": "Paris1",
+            "C": "Paris2",
+            "D": "Paris3"
+        },
+        "3":{
+            "A": "Paris",
+            "B": "Paris1",
+            "C": "Paris2",
+            "D": "Paris3"
+        },
+        "4":{
+            "A": "Paris",
+            "B": "Paris1",
+            "C": "Paris2",
+            "D": "Paris3"
+        }
+    },
+    "Answers": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+    }
+}
