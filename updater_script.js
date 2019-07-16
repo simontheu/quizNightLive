@@ -1,31 +1,10 @@
 var socket = io();
 
-socket.emit('getTeams');
+socket.emit('getQuestions');
 
 //Outgoing updates to index
 function homeScore(scoreChange) { 
   socket.emit('homeScore',scoreChange);
-}
-
-function awayScore(scoreChange) {
-  socket.emit('awayScore',scoreChange);
-}
-
-function clockAnim(direction) {
-  var teamNameLeft = document.getElementById("teamNameLeft").value;
-  var teamNameRight = document.getElementById("teamNameRight").value;
-  
-
-
-  socket.emit('clockAnim',{ direction: direction, nameLeft: teamNameLeft, nameRight: teamNameRight} );
-}
-
-function clockTime(action) {
-  socket.emit('clockTime',action);
-}
-
-function halfUpdate(half) {
-  socket.emit('halfUpdate',half);
 }
 
 function lowerThirdScore(direction) {
@@ -55,10 +34,16 @@ function awayL3(playerNumber) {
   socket.emit('awayL3',playerNumber);
 }
 */
-function timeAdjust() {
+function sendNewQuestion(id) {
   //Send the text box value
-  var adjust = document.getElementById("timeAdjustText").value;
-  socket.emit("timeAdjust", adjust);
+  var questionObject = {
+    "QuestionID" : id,
+    "AnswerA" : id,
+    "AnswerB" : id,
+    "AnswerC" : id,
+    "AnswerD" : id
+  }
+  socket.emit("newQuestion", questionObject);
 }
 
 //Echos back to the updater
@@ -67,49 +52,7 @@ socket.on('timeAnnounce', function(msg){
   document.getElementById("clockTime").textContent =  msg;
 });
 
-socket.on('halfAnnounce', function(msg){
-  document.getElementById("halfIndicator").textContent =  msg;
-});
 
-socket.on('awayScoreUpdate', function(msg){
-  document.getElementById("awayScoreVal").textContent =  msg;
-});
-
-socket.on('homeScoreUpdate', function(msg){
-  document.getElementById("homeScoreVal").textContent =  msg;
-});
-
-socket.on('lowerThirdScoreBackgroundAnnounce', function(msg){
-  document.getElementById("lowerThirdScoreBackground").src = msg;
-});
-
-socket.on('lowerThirdScoreOnAirAnnounce', function(msg){
-  if (msg){
-    document.getElementById("lowerThirdScoreBackground").style.backgroundColor = "#ff0000";
-  } else {
-    document.getElementById("lowerThirdScoreBackground").style.backgroundColor = null;
-  }
-  
-});
-
-socket.on('clockOnAirAnnounce', function(msg){
-  if (msg){
-    document.getElementById("clockScoreBackground").style.backgroundColor = "#ff0000";
-  } else {
-    document.getElementById("clockScoreBackground").style.backgroundColor = null;
-  }
-  
-});
-
-function changeClockNames() {
-  var leftName = document.getElementById("teamNameLeft").value;
-  var rightName = document.getElementById("teamNameRight").value;
-  document.getElementById("clock-team-left").textContent = leftName
-  document.getElementById("clock-team-right").textContent = rightName
-}
-
-
-/*
 socket.on('gotTeams', function(msg){
   console.log(msg.home);
   //Sort home player buttons
@@ -130,4 +73,33 @@ socket.on('gotTeams', function(msg){
     index++;
   });
 });
-*/
+
+
+
+socket.on('getQuestions', function(msg) {
+  //Startup generator
+  var docelem = document.getElementById('main')
+  console.log(msg.Rounds)
+
+  msg.Rounds.forEach(element => {
+    var newdiv = document.createElement('div');   //create a div
+    docelem.appendChild(newdiv);
+    newdiv.id = "round" + element.RoundNumber
+    newdiv.textContent = "Round " + element.RoundNumber
+    element.Questions.forEach(questionElement => {
+      //questionElement.
+      newinnerdiv = document.createElement('div');
+      newinnerdiv.id = "round" + element.RoundNumber + "Q" + questionElement.QuestionNumber
+      newinnerdiv.textContent = "Q" + questionElement.QuestionNumber + ": " + questionElement.Question
+      cueButton = document.createElement("button");
+      cueButton.textContent = "CUE"
+      newdiv.appendChild(newinnerdiv);
+      newdiv.appendChild(cueButton);
+    });
+                           //add an id
+      
+  });
+
+                 //append to the doc.body
+
+});

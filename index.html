@@ -21,19 +21,19 @@
         Question 1: What is the capital city of x? capital city of x?capital city of x?
     </div>
     <div class="answers">
-        <div id="answerA" class="answer1" onclick="answer(1)">
+        <div id="answerA" class="answer1" onclick="answer('A')">
           <div class="questionLetter">A:</div>
           <div class="answerMain">Paris</div>
         </div>  
-        <div id="answerB" class="answer2" onclick="answer(2)">
+        <div id="answerB" class="answer2" onclick="answer('B')">
           <div class="questionLetter">B:</div>
           <div class="answerMain">Paris</div>
         </div>  
-        <div id="answerC" class="answer3" onclick="answer(3)">
+        <div id="answerC" class="answer3" onclick="answer('C')">
           <div class="questionLetter">C:</div>
           <div class="answerMain">Paris</div>
         </div>  
-        <div id="answerD" class="answer4" onclick="answer(4)">
+        <div id="answerD" class="answer4" onclick="answer('D')">
           <div class="questionLetter">D:</div>
           <div class="answerMain">Paris</div>
         </div>  
@@ -51,58 +51,6 @@
 
 <script>
 
-function answer(answer) {
-  console.log(answer);
-  switch (answer) {
-    case 1:
-      animateTimer();
-      var answerElement = document.getElementById("answerA");
-      console.log(answerElement);
-      answerElement.style.backgroundColor = "#ff0000";
-      break;
-    case 2:
-      var answerElement = document.getElementById("answerB");
-      console.log(answerElement);
-      answerElement.style.backgroundColor = "#ff0000";
-      break;
-    case 3:
-      var answerElement = document.getElementById("answerC");
-      console.log(answerElement);
-      answerElement.style.backgroundColor = "#ff0000";
-      break;
-    case 4:
-      var answerElement = document.getElementById("answerD");
-      console.log(answerElement);
-      answerElement.style.backgroundColor = "#ff0000";
-      break;
-  }
-}
-
-function animateTimer() {
-  startTime = Date.now();
-  timer = setInterval(frame, 20);
-}
-
-function frame() {
-  var questionLength = 30000;
-  var progess = document.getElementById("progress");
-  elapsedTime = questionLength - (Date.now() - startTime);
-  
-  updateTimerBar((elapsedTime/questionLength));
-
-  if (elapsedTime < 1) {
-    elapsedTime = 0;
-    clearInterval(timer);
-  }
-}
-
-function updateTimerBar(fractionLeft) {
-  var c = document.getElementById("timerBarCanvas");
-  var ctx = c.getContext("2d");
-  var fillWidth = c.width * fractionLeft;
-  ctx.fillRect(0, 0, fillWidth, c.height);
-  ctx.clearRect(fillWidth, 0, c.width, c.height);
-}
 </script>
 
 <style>

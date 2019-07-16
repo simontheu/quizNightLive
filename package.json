@@ -1,10 +1,11 @@
 {
-    "name": "live-graphics-clock",
-    "version": "0.0.1",
-    "description": "live clock and score for sport",
-    "dependencies": {
-        "easytimer": "^1.1.1",
-        "express": "^4.16.3",
-        "socket.io": "^2.0.4"
-    }
+  "name": "live-graphics-clock",
+  "version": "0.0.1",
+  "description": "live clock and score for sport",
+  "dependencies": {
+    "easytimer": "^1.1.1",
+    "express": "^4.16.3",
+    "mongodb": "^3.2.7",
+    "socket.io": "^2.0.4"
+  }
 }
