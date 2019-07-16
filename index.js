@@ -72,6 +72,10 @@ io.on('connection', function(socket){
         console.log("socket.on")
         io.emit('getQuestions', questions);
     });
+    socket.on('newQuestion', function(msg){
+        console.log("newQuestion.on")
+        io.emit('newQuestion', msg);
+    });
     socket.on('awayL3', function(msg){
         io.emit('awayL3', msg);
     });

@@ -53,12 +53,13 @@ timer.addEventListener('secondsUpdated', function (e) {
   updateVisibleTime();
 });
 
-socket.on('gotQuestion', function(msg){
-  document.getElementById("question").textContent = "Q1: Questin goes here?"
-  document.getElementById("answerA").textContent = "Answer A"
-  document.getElementById("answerB").textContent = "Answer B"
-  document.getElementById("answerC").textContent = "Answer C"
-  document.getElementById("answerD").textContent = "Answer D"
+socket.on('newQuestion', function(msg){
+  console.log(msg)
+  document.getElementById("question").textContent = "Q" + msg.QuestionNumber + ". " + msg.Question
+  document.getElementById("answerA").textContent = msg.AnswerOptions.A
+  document.getElementById("answerB").textContent = msg.AnswerOptions.B
+  document.getElementById("answerC").textContent = msg.AnswerOptions.C
+  document.getElementById("answerD").textContent = msg.AnswerOptions.D
   //socket.emit("lowerThirdScoreBackgroundAnnounce","/media/HalfTime.png")
 });
 
