@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "Rounds":[
         {"RoundNumber": 1,
         "RoundName":"Topical",
@@ -135,3 +136,8 @@
     ]
 }
     
+=======
+    "home": [],
+    "away": []       
+}
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf

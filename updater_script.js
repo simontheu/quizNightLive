@@ -7,6 +7,30 @@ function homeScore(scoreChange) {
   socket.emit('homeScore',scoreChange);
 }
 
+<<<<<<< HEAD
+=======
+function awayScore(scoreChange) {
+  socket.emit('awayScore',scoreChange);
+}
+
+function clockAnim(direction) {
+  var teamNameLeft = document.getElementById("teamNameLeft").value;
+  var teamNameRight = document.getElementById("teamNameRight").value;
+  
+
+
+  socket.emit('clockAnim',{ direction: direction, nameLeft: teamNameLeft, nameRight: teamNameRight} );
+}
+
+function clockTime(action) {
+  socket.emit('clockTime',action);
+}
+
+function halfUpdate(half) {
+  socket.emit('halfUpdate',half);
+}
+
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf
 function lowerThirdScore(direction) {
   var teamNameLeft = document.getElementById("teamNameLongLeft").value;
   var teamNameRight = document.getElementById("teamNameLongRight").value;
@@ -34,7 +58,11 @@ function awayL3(playerNumber) {
   socket.emit('awayL3',playerNumber);
 }
 */
+<<<<<<< HEAD
 function sendNewQuestion(id) {
+=======
+function timeAdjust() {
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf
   //Send the text box value
   var questionObject = {
     "QuestionID" : id,
@@ -53,6 +81,15 @@ socket.on('timeAnnounce', function(msg){
 });
 
 
+function changeClockNames() {
+  var leftName = document.getElementById("teamNameLeft").value;
+  var rightName = document.getElementById("teamNameRight").value;
+  document.getElementById("clock-team-left").textContent = leftName
+  document.getElementById("clock-team-right").textContent = rightName
+}
+
+
+/*
 socket.on('gotTeams', function(msg){
   console.log(msg.home);
   //Sort home player buttons
@@ -73,6 +110,7 @@ socket.on('gotTeams', function(msg){
     index++;
   });
 });
+<<<<<<< HEAD
 
 
 
@@ -103,3 +141,6 @@ socket.on('getQuestions', function(msg) {
                  //append to the doc.body
 
 });
+=======
+*/
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf

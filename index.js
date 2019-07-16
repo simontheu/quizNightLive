@@ -43,8 +43,13 @@ app.get('/media/HalfTime.png', function(req, res) {
     res.sendFile(__dirname + '/media/HalfTime.png');
 });
 
+<<<<<<< HEAD
 app.get('/media/QuizNightLogo.png', function(req, res) {
     res.sendFile(__dirname + '/media/QuizNightLogo.png');
+=======
+app.get('/media/FullTime.png', function(req, res) {
+    res.sendFile(__dirname + '/media/FullTime.png');
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf
 });
 
 app.get('/media/LowerThird.png', function(req, res) {

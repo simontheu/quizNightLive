@@ -1,14 +1,129 @@
 <link rel="stylesheet" href="styles.css">
 <script src="/socket.io/socket.io.js"></script>
 <script src="updater_script.js"></script>
+<<<<<<< HEAD
 <body>
 <h4><br>Pre Section</h4>
 <div id="pre">
     <br>    
+=======
+<h4>CLOCK PREVIEW:</h4>
+
+<div class="relativePreview" id="scoreClockDiv">
+        <img src="/media/Scorebug.png" width="857" height="73" alt="" id="clockScoreBackground">
+    
+        <!--<p class="absolute-half" id="halfIndicator">1st</a> </p>-->
+        <p class="absolute-time" id="clockTime">00:00</a> </p>
+        <p class="absolute-left-score" id="homeScoreVal">0</a> </p>
+        <p class="absolute-right-score"id="awayScoreVal">0</a> </p>
+        <p class="absolute-team-left" id="clock-team-left"></a> </p>
+        <p class="absolute-team-right"id="clock-team-right"></a> </p>
+    </div>
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf
 </div>
 <h4><br>Main</h4>
 <div id="main">
 
+<<<<<<< HEAD
+=======
+<br>
+
+<div class="settings">
+    <div class="scoreButtons">
+            <div class="divScoreTable">
+                <div class="divTableBody">
+                    <div class="divTableRow">
+                        <div class="divTableCell">HOME:</div>
+                        <div class="divTableCell">AWAY:</div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-1)">-1</button><button class="homeButton" onClick="homeScore(1)">+1</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-1)">-1</button><button class="awayButton" onClick="awayScore(1)">+1</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-2)">-2</button><button class="homeButton" onClick="homeScore(2)">+2</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-2)">-2</button><button class="awayButton" onClick="awayScore(2)">+2</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-3)">-3</button><button class="homeButton" onClick="homeScore(3)">+3</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-3)">-3</button><button class="awayButton" onClick="awayScore(3)">+3</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-5)">-5</button><button class="homeButton" onClick="homeScore(5)">+5</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-5)">-5</button><button class="awayButton" onClick="awayScore(5)">+5</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="homeButton" onClick="homeScore(-7)">-7</button><button class="homeButton" onClick="homeScore(7)">+7</button></div>
+                        <div class="divTableCell"><button class="awayButton" onClick="awayScore(-7)">-7</button><button class="awayButton" onClick="awayScore(7)">+7</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><button class="yellowCardButton" onclick="yellowHome('-1')">-1</button><button class="yellowCardButton" onclick="redHome('+1')">+1</button></div>
+                        <div class="divTableCell"><button class="yellowCardButton" onclick="yellowAway('-1')">-1</button><button class="yellowCardButton" onclick="redAway('+1')">+1</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="redCardButton" onclick="yellowHome('-1')">-1</button><button class="redCardButton" onclick="redHome('-1')">-1</button></div>
+                            <div class="divTableCell"><button class="redCardButton" onclick="yellowAway('-1')">-1</button><button class="redCardButton" onclick="redAway('-1')">-1</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="genericButton" onclick="clockAnim('1')">Clock In</button></div>
+                            <div class="divTableCell"><button class="genericButton" onclick="clockAnim('0')">Clock Out</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="genericButton" onclick="clockTime('1')">Time On</button></div>
+                            <div class="divTableCell"><button class="genericButton" onclick="clockTime('0')">Time Off</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="genericButton" onclick="clockTime('2')">Reset</button></div>
+                            <div class="divTableCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><button class="genericButton" onclick="halfUpdate('1')">1st Half</button></div>
+                            <div class="divTableCell"><button class="genericButton" onclick="halfUpdate('2')">2nd Half</button></div>
+                    </div>
+                    <div class="divTableRow">
+                            <div class="divTableCell"><input class="timeAdjustText" id="timeAdjustText" value="00:00"></input><br>Format MM:SS</div>
+                            <div class="divTableCell"><button class="genericButton" onclick="timeAdjust()">Set Time</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lowerThirdPreview">
+            <h4>LOWER 3RD PREVIEW:</h4>
+            <img src="/media/HalfTime.png" width="501" height="207" alt="" id="lowerThirdScoreBackground"><br>         
+            <button class="genericButton" onclick="setLowerThirdScoreBackground('1')">1st Half</button>
+            <button class="genericButton" onclick="setLowerThirdScoreBackground('2')">2nd Half</button>
+            <button class="genericButton" onclick="lowerThirdScore('1')">Score Lower Third In</button>
+            <button class="genericButton" onclick="lowerThirdScore('0')">Score Lower Third Out</button><br><br>
+            <div class="divScoreTable">
+                <div class="divTableBody">
+                    <div class="divTableRow">
+                        <div class="divTableCell">Lower 3rd Names:<br>
+                            <button class="homeButton" onclick="homeL3(0)" id="homePlayer1">Go</button>
+                            <input class="nameEntry" id="name1text" value="1 Joe Bloggs"></input><br><br>
+                            <button class="homeButton" onclick="homeL3(1)" id="homePlayer2">Go</button>
+                            <input class="nameEntry" id="name2text" value="2 Fred Jones"></input>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell"><br>TEAM NAMES CLOCK:<br>
+                            <input class="nameEntry" id="teamNameLeft" oninput="changeClockNames()" value="LDON"></input><br>
+                            <input class="nameEntry" id="teamNameRight" oninput="changeClockNames()" value="GESE"></input>
+
+                        </div><br>
+                    </div>
+                    
+                    <div class="divTableRow">
+                            <div class="divTableCell">TEAM NAMES LOWER:<br>
+                            <input class="nameEntry" id="teamNameLongLeft" value="London Sevens"></input><br>
+                            <input class="nameEntry" id="teamNameLongRight" value="Golden Geese"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+>>>>>>> 7dc2b32f69084c7558eb7dbde190788bd5f421bf
 </div>
 <h4><br>Post</h4>
 <div id="post">
