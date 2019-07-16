@@ -2,11 +2,26 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var Timer = require('easytimer'); 
-var teams = require('./teams.json');
+var questions = require('./teams.json');
+
+//Database init
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  db.close();
+});
+
 
 var timer = new Timer();
 
-console.log(teams.away);
+console.log(questions.away);
+
+console.log("PRE Q");
+io.emit('gotQuestions')
+console.log("POST Q");
 
 app.get('/index', function(req, res){
     res.sendFile(__dirname + '/index.html');
@@ -20,24 +35,24 @@ app.get('/styles.css', function(req, res) {
     res.sendFile(__dirname + '/styles.css');
 });
 
-app.get('/media/clock_static.png', function(req, res) {
-    res.sendFile(__dirname + '/media/clock_static.png');
+app.get('/media/Scorebug.png', function(req, res) {
+    res.sendFile(__dirname + '/media/Scorebug.png');
 });
 
-app.get('/media/half_time_lower_3rd.png', function(req, res) {
-    res.sendFile(__dirname + '/media/half_time_lower_3rd.png');
+app.get('/media/HalfTime.png', function(req, res) {
+    res.sendFile(__dirname + '/media/HalfTime.png');
 });
 
-app.get('/media/full_time_lower_3rd.png', function(req, res) {
-    res.sendFile(__dirname + '/media/full_time_lower_3rd.png');
+app.get('/media/QuizNightLogo.png', function(req, res) {
+    res.sendFile(__dirname + '/media/QuizNightLogo.png');
 });
 
-app.get('/media/SaintsL3.png', function(req, res) {
-    res.sendFile(__dirname + '/media/SaintsL3.png');
+app.get('/media/LowerThird.png', function(req, res) {
+    res.sendFile(__dirname + '/media/LowerThird.png');
 });
 
-app.get('/media/ArmyL3.png', function(req, res) {
-    res.sendFile(__dirname + '/media/ArmyL3.png');
+app.get('/media/LowerThird.png', function(req, res) {
+    res.sendFile(__dirname + '/media/LowerThird.png');
 });
 
 app.get('/index_script.js', function(req, res) {
@@ -53,60 +68,16 @@ app.get('/node_modules/easytimer/dist/easytimer.min.js', function(req, res) {
 });
 
 io.on('connection', function(socket){
-    socket.on('awayScore', function(msg){
-      io.emit('awayScore',  msg);
-    });
-    socket.on('homeScore', function(msg){
-        io.emit('homeScore', msg);
-    });
-    socket.on('clockAnim', function(msg){
-        io.emit('clockAnim', msg);
-    });
-    socket.on('clockTime', function(msg){
-        io.emit('clockTime', msg);
-    });
-    socket.on('timeAnnounce', function(msg){
-        io.emit('timeAnnounce', msg);
-    });
-    socket.on('halfUpdate', function(msg){
-        io.emit('halfUpdate', msg);
-    });
-    socket.on('halfAnnounce', function(msg){
-        io.emit('halfAnnounce', msg);
-    });
-    socket.on('timeAdjust', function(msg){
-        io.emit('timeAdjust', msg);
-    });
-    socket.on('homeScoreUpdate', function(msg){
-        io.emit('homeScoreUpdate', msg);
-    });
-    socket.on('awayScoreUpdate', function(msg){
-        io.emit('awayScoreUpdate', msg);
-    });
-    socket.on('lowerThirdScore', function(msg){
-        io.emit('lowerThirdScore', msg);
-    });
-    socket.on('setLowerThirdScoreBackground', function(msg){
-        io.emit('setLowerThirdScoreBackground', msg);
-    });
-    socket.on('lowerThirdScoreBackgroundAnnounce', function(msg){
-        io.emit('lowerThirdScoreBackgroundAnnounce', msg);
-    });
-    socket.on('lowerThirdScoreOnAirAnnounce', function(msg){
-        io.emit('lowerThirdScoreOnAirAnnounce', msg);
-    });
-    socket.on('clockOnAirAnnounce', function(msg){
-        io.emit('clockOnAirAnnounce', msg);
-    });
-    socket.on('homeL3', function(msg){
-        io.emit('homeL3', msg);
+    socket.on('getQuestions', function(msg){
+        console.log("socket.on")
+        io.emit('getQuestions', questions);
     });
     socket.on('awayL3', function(msg){
         io.emit('awayL3', msg);
     });
-    socket.on('getTeams', function(){
-        console.log(teams);
-        io.emit('gotTeams', teams);
+    socket.on('answeredQuestion', function(msg){
+        console.log(msg);
+        io.emit('answeredQuestionReceived', {});
     })
     console.log('connection received');
 });
