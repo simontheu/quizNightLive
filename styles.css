@@ -1,8 +1,17 @@
 :root {
     font-size: 35px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'vtcallskratcheduponeregular', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     
-    
+}
+
+@font-face {
+    font-family: 'vtcallskratcheduponeregular';
+    src: url('./fonts/vtcallskratchedupone-webfont.woff2') format('woff2'),
+         url('./fonts/vtcallskratchedupone-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    color: #999999;
+
 }
 
 .mainArea {
@@ -13,7 +22,9 @@
 }
 body
 {
-    background: #ffffff;
+    /*background: #ffffff;*/
+    background-image: url("media/chalk.jpg");
+    background-size: auto;
 }
 
 .logo {
@@ -112,3 +123,66 @@ body
     border: 3px solid black;
     box-sizing: border-box;
 }
+
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+
+.mainSignup{ 
+    padding:20px; 
+    font-family: 'Helvetica', serif; 
+    box-shadow: 5px 5px 7px 5px #888888; 
+} 
+
+.mainSignup h1{ 
+    font-size: 40px; 
+    text-align:center; 
+    font-family: 'Helvetica', serif; 
+} 
+
+input{ 
+    font-family: 'Helvetica', serif; 
+    width: 100%; 
+    font-size: 20px; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    border: none; 
+    border-bottom: 2px solid #767474; 
+} 
+input[type=submit] { 
+    font-family: 'Helvetica', serif; 
+    width: 100%; 
+    background-color: #767474; 
+    border: none; 
+    color: white; 
+    padding: 16px 32px; 
+    margin: 4px 2px; 
+    border-radius: 10px; 
+} 
