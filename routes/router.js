@@ -5,7 +5,6 @@ var render = require("../render");
 
 var commonHeader = { 'Content-Type': 'html' };
 
-
 // GET route for reading data
 router.get('/1', function (req, res, next) {
   res.writeHead(200, commonHeader);
@@ -19,7 +18,7 @@ router.get('/1', function (req, res, next) {
       if (req.session.userId) {
         render.view("video", {}, res);
         render.view("questions", {}, res);
-        render.view("logout", {}, res);
+        render.view("logout", { username: req.session.username, teamname: req.session.teamname}, res);
       
       } else {
         //dont render video, render registration request
@@ -39,7 +38,7 @@ router.get('/2', function (req, res, next) {
       console.log(">>");
       console.log(printThis);
       console.log("<<");
-      render.view("login_status", {"badges": 1}, res);
+      render.view("login_status", {badges: 1}, res);
       res.end();
       //return res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -124,16 +123,20 @@ router.get('/profile', function (req, res, next) {
 router.get('/logout', function (req, res, next) {
   if (req.session) {
     // delete session object
+    
+    //req.session = null;
+    
 
     req.session.destroy(function (err) {
-      req.session = null;
-      console.log("should of destroyed it now." + req.session)
+      res.clearCookie('connect.sid', { path: '/' });
       if (err) {
         return next(err);
       } else {
+        console.log("this branch taken!")
         return res.redirect('/1');
       }
     });
+    
   }
 });
 

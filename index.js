@@ -36,6 +36,7 @@ app.use(session({
     secret: 'work hard',
     resave: true,
     saveUninitialized: false,
+    unset: 'destroy',
     store: new MongoStore({
       mongooseConnection: db
     })

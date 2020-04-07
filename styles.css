@@ -5,26 +5,25 @@
 }
 
 @font-face {
-    font-family: 'vtcallskratcheduponeregular';
-    src: url('./fonts/vtcallskratchedupone-webfont.woff2') format('woff2'),
-         url('./fonts/vtcallskratchedupone-webfont.woff') format('woff');
+    font-family: Arial;
     font-weight: normal;
     font-style: normal;
-    color: #999999;
-
+    /*color: #dddddd;*/
 }
 
 .mainArea {
     width: 70%;
-    padding: 7px;
+    padding: 0px;
     margin: 0 auto;
     text-align: center;
 }
+
 body
 {
     /*background: #ffffff;*/
     background-image: url("media/chalk.jpg");
     background-size: auto;
+    color: #dddddd;
 }
 
 .logo {
@@ -105,13 +104,13 @@ body
 
 .timerBar {
     width: 100%;
-    height: 4%;
+    height: 1%;
 }
 
 .timerBarContainer {
     border-radius: 25px;
     padding-top: 17px;
-    width: 98%;
+    width: 90%;
     margin: auto;
 }
 
@@ -122,6 +121,9 @@ body
     margin: auto;
     border: 3px solid black;
     box-sizing: border-box;
+    height: 70px;
+    border:1px solid #ffffff;
+    background-color:blue;
 }
 
 /* DivTable.com */
@@ -136,11 +138,21 @@ body
 	background-color: #EEE;
 	display: table-header-group;
 }
-.divTableCell, .divTableHead {
+
+.divTableCell {
 	border: 1px solid #999999;
-	display: table-cell;
-	padding: 3px 10px;
+    display: table-cell;
+    vertical-align: top;
 }
+
+.divTableCellText {
+	border: 1px solid #999999;
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 40px;
+	/*padding: 3px 30px;*/
+}
+
 .divTableHeading {
 	background-color: #EEE;
 	display: table-header-group;
@@ -151,9 +163,7 @@ body
 	display: table-footer-group;
 	font-weight: bold;
 }
-.divTableBody {
-	display: table-row-group;
-}
+
 
 .mainSignup{ 
     padding:20px; 
@@ -175,7 +185,8 @@ input{
     margin: 8px 0; 
     border: none; 
     border-bottom: 2px solid #767474; 
-} 
+}
+
 input[type=submit] { 
     font-family: 'Helvetica', serif; 
     width: 100%; 
