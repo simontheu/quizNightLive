@@ -32,23 +32,26 @@ body
 }
 
 .question {
-    margin: 1%;
+    margin: 2%;
     padding: 2%;
-    background-color: #40b7ff;
+    /*background-color: #40b7ff;*/
+    background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
 }
 
 .answers {
     padding: 5px;
     display: grid;
-    padding: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 5px;
 }
 
 .answer1 {
     grid-column-start: 1;
     grid-column-end: 1;
     margin: 5px;
-    background-color: #40b7ff;
+    background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
 }
 
@@ -56,7 +59,7 @@ body
     grid-column-start: 2;
     grid-column-end: 2;
     margin: 5px;
-    background-color: #40b7ff;
+    background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
 }
 
@@ -64,7 +67,7 @@ body
     grid-column-start: 1;
     grid-column-end: 1;
     margin: 5px;
-    background-color: #40b7ff;
+    background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
 }
 
@@ -72,7 +75,7 @@ body
     grid-column-start: 2;
     grid-column-end: 2;
     margin: 5px;
-    background-color: #40b7ff;
+    background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
 }
 
@@ -89,47 +92,53 @@ body
 }
 
 .videoWrapper {
-	position: relative;
+	text-align: center;
 	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
-}
-.videoWrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	height: 2px;
 }
 
+.videoWrapper iframe {
+	width: 70%;
+    height: 100%;
+}
+
+/*
 .timerBar {
     width: 100%;
     height: 1%;
 }
-
+*/
 .timerBarContainer {
+    text-align: center;
     border-radius: 25px;
-    padding-top: 17px;
-    width: 90%;
+    width: 70%;
     margin: auto;
+    align-content: center;
+    
+    width: 100%;
+    
+    box-sizing: border-box;
+    height: 70px;
 }
 
+
 .timerBarCanvas {
+    align-content: center;
     border-radius: 25px;
-    padding-top: 17px;
-    width: 98%;
-    margin: auto;
+    width: 92%;
     border: 3px solid black;
     box-sizing: border-box;
     height: 70px;
-    border:1px solid #ffffff;
-    background-color:blue;
+    margin: 15px;
+    border:2px solid rgba(0, 0, 0, 50);
+    background-color:rgba(25, 150, 25, 3);
 }
 
 /* DivTable.com */
 .divTable{
 	display: table;
-	width: 100%;
+    margin: auto;
+	width: 70%;
 }
 .divTableRow {
 	display: table-row;
@@ -140,13 +149,13 @@ body
 }
 
 .divTableCell {
-	border: 1px solid #999999;
+	
     display: table-cell;
     vertical-align: top;
 }
 
 .divTableCellText {
-	border: 1px solid #999999;
+	/*border: 1px solid #999999;*/
     display: table-cell;
     vertical-align: top;
     padding-top: 40px;

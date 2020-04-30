@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "live clock and score for sport",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "connect-mongodb-session": "^2.3.1",
     "easytimer": "^1.1.1",
     "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "mongodb": "^3.4.0",
-    "mongoose": "^5.8.1",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.10",
     "socket.io": "^2.0.4"
   }
 }

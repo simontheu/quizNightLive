@@ -1,4 +1,11 @@
+
+
+
+console.log("test");
+
 var socket = io();
+
+
 
 socket.emit('getQuestions');
 

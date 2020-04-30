@@ -5,17 +5,39 @@ var render = require("../render");
 
 var commonHeader = { 'Content-Type': 'html' };
 
+
+var bodyParser = require("body-parser"); 
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+// POST /login gets urlencoded bodies
+/*
+router.post('/3', urlencodedParser, function (req, res) { // login
+  console.log(req.body);
+  res.send('welcome, ' + req.body.username)
+})
+*/
+
 // GET route for reading data
 router.get('/1', function (req, res, next) {
   res.writeHead(200, commonHeader);
+      if (req.session !== undefined && req.session.userId !== undefined) {
+        loggedIn = true;
+      } else {
+        loggedIn = false;
+      }
       render.view("header", {}, res);
-      var printThis = req.session.username ;
+      //var printThis = req.session.username ;
       console.log(">>");
-      console.log(printThis);
-      console.log(req.session.userId);
+      //console.log(printThis);
+      //console.log(req.session.userId);
       console.log("<<");
 
-      if (req.session.userId) {
+      if (loggedIn) {
         render.view("video", {}, res);
         render.view("questions", {}, res);
         render.view("logout", { username: req.session.username, teamname: req.session.teamname}, res);
@@ -30,15 +52,11 @@ router.get('/1', function (req, res, next) {
       //return res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+
 // GET route for reading data
 router.get('/2', function (req, res, next) {
   res.writeHead(200, commonHeader);
-      render.view("header", {}, res);
-      var printThis = req.session.username ;
-      console.log(">>");
-      console.log(printThis);
-      console.log("<<");
-      render.view("login_status", {badges: 1}, res);
+      render.view("updater", {}, res);
       res.end();
       //return res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -49,8 +67,15 @@ router.get('/index', function(req, res){
 });
 */
 //POST route for updating data
-router.post('/1', function (req, res, next) {
+//router.post('/1', function (req, res, next) {
+router.post('/1', urlencodedParser, function (req, res, next) { // login
   // confirm that user typed same password twice
+  if (req.body !== undefined) {
+    console.log(req.body);
+  } else {
+    console.log(req);
+  }
+  console.log(req.body.password);
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
     err.status = 400;

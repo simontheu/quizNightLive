@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz Night Live</title>
+<link rel="stylesheet" href="styles.css">
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="/node_modules/easytimer/dist/easytimer.min.js"></script>
+<script src="updater_script.js"></script>
+
+
+
+<div class="question"  id="question">
+    Question 1: What is the capital city of x? capital city of x?capital city of x?
+  </div>
+<div class="answers">
+    <div id="answerA" class="answer1" onclick="emitSomething('A')">
+      <div class="questionLetter">A:</div>
+      <div class="answerMain">Paris</div>
+    </div>  
+    <div id="answerB" class="answer2" onclick="emitSomething('A')">
+      <div class="questionLetter">B:</div>
+      <div class="answerMain">Paris</div>
+    </div>  
+    <div id="answerC" class="answer3" onclick="emitSomething('A')">
+      <div class="questionLetter">C:</div>
+      <div class="answerMain">Paris</div>
+    </div>  
+    <div id="answerD" class="answer4" onclick="emitSomething('A')">
+      <div class="questionLetter">D:</div>
+      <div class="answerMain">Paris</div>
+    </div>  
+  </div>
+</div>
+
+
+<!--        <p><button onclick="animateTimer()">StartTimer</button></p> -->
+<div class="timerBarContainer">
+    <canvas class="timerBarCanvas" id="timerBarCanvas"></canvas>
+</div>
+<script>
+
+
+
+socket.on('hello', function(){  
+   console.log('hello world!');
+});
+
+function emitSomething(string) {
+  socket.emit('testEmit',string);
+  console.log("emitted");
+}
+</script>

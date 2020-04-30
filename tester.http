@@ -1,0 +1,10 @@
+post http://192.168.100.125:3000/5  HTTP/1.1
+Content-Type: application/json
+
+{
+      "email": "simon_u0@yahoo.com",
+      "username": "user",
+      "password": "pass",
+      "teamname": "test",
+      "passwordConf": "pass"
+}
