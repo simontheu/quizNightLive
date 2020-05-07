@@ -4,23 +4,19 @@
 <title>Quiz Night Live</title>
 <link rel="stylesheet" href="styles.css">
 
-<script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io();
-</script>
+    
+  </script>
+<script src="/node_modules/easytimer/dist/easytimer.min.js"></script>
+
 
 <script src="/socket.io/socket.io.js"></script>
-
-<script src="/node_modules/easytimer/dist/easytimer.min.js"></script>
-<script src="updater_script.js"></script>
-
-
 
 <div class="question"  id="question">
     Question 1: What is the capital city of x? capital city of x?capital city of x?
   </div>
 <div class="answers">
-    <div id="answerA" class="answer1" onclick="emitSomething('A')">
+    <div id="answerA" class="answer1" onclick="emitSomething()">
       <div class="questionLetter">A:</div>
       <div class="answerMain">Paris</div>
     </div>  
@@ -39,6 +35,9 @@
   </div>
 </div>
 
+<h4><br>Main</h4>
+<div id="main">
+</div>
 
 <!--        <p><button onclick="animateTimer()">StartTimer</button></p> -->
 <div class="timerBarContainer">
@@ -46,14 +45,57 @@
 </div>
 <script>
 
+var socket = io();
 
+function emitSomething() {
+  socket.emit('getQuestions');
+  console.log("emitted get questions");
+}
 
-socket.on('hello', function(){  
-   console.log('hello world!');
+socket.on('newQuestion', function(msg) {
+  console.log("Do you work here:");
 });
 
-function emitSomething(string) {
-  socket.emit('testEmit',string);
-  console.log("emitted");
+socket.on('gotQuestions', function(msg) {
+  console.log('gotQuestions');
+  //Startup generator
+  var docelem = document.getElementById('main')
+  console.log(msg.Rounds)
+
+  msg.Rounds.forEach(element => {
+    var newdiv = document.createElement('div');   //create a div
+    docelem.appendChild(newdiv);
+    newdiv.id = "round" + element.RoundNumber
+    newdiv.textContent = "Round " + element.RoundNumber
+    element.Questions.forEach(questionElement => {
+      //questionElement.
+      newinnerdiv = document.createElement('div');
+      newinnerdiv.id = "round" + element.RoundNumber + "Q" + questionElement.QuestionNumber
+      newinnerdiv.textContent = "Q" + questionElement.QuestionNumber + ": " + questionElement.Question
+      cueButton = document.createElement("button");
+      cueButton.id = "round" + element.RoundNumber + "Q" + questionElement.QuestionNumber
+      cueButton.addEventListener ("click", function() {
+        console.log(questionElement);
+        sendNewQuestion(questionElement);
+        //setQuizState and question number, etc
+      });
+      
+      cueButton.textContent = "CUE"
+      newdiv.appendChild(newinnerdiv);
+      newdiv.appendChild(cueButton);
+    });
+                           //add an id
+      
+  });
+
+                 //append to the doc.body
+
+});
+
+function sendNewQuestion(questionDictionary) {
+  //Strip the answer off.
+  delete questionDictionary["Answer"]
+  socket.emit("cueQuestion", questionDictionary);
 }
+
 </script>

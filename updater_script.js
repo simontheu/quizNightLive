@@ -77,7 +77,7 @@ socket.on('gotTeams', function(msg){
 
 
 
-socket.on('getQuestions', function(msg) {
+socket.on('gotQuestions', function(msg) {
   //Startup generator
   var docelem = document.getElementById('main')
   console.log(msg.Rounds)

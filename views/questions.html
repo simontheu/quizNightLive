@@ -1,3 +1,4 @@
+
 <div class="question"  id="question">
         Question 1: What is the capital city of x? capital city of x?capital city of x?
       </div>
@@ -24,4 +25,44 @@
     <div class="timerBarContainer">
         <canvas class="timerBarCanvas" id="timerBarCanvas"></canvas>
     </div>
+
+<script>
+var socket = io();
+
+socket.emit('test');
+socket.on('connect', () => {
+    socket.send('joined');
+    socket.on('newQuestion', (msg) => {
+      document.getElementById("question").textContent = "Q" + msg.QuestionNumber + ". " + msg.Question
+      document.getElementById("answerA").textContent = msg.AnswerOptions.A
+      document.getElementById("answerB").textContent = msg.AnswerOptions.B
+      document.getElementById("answerC").textContent = msg.AnswerOptions.C
+      document.getElementById("answerD").textContent = msg.AnswerOptions.D
+      //socket.emit("lowerThirdScoreBackgroundAnnounce","/media/HalfTime.png")
+    });
+  });
   
+/*socket.on('newQuestion', function(msg) {
+  console.log("msg")
+  
+});
+*/
+//This is for people who may of left the quiz. started late etc?
+socket.on('currentQuizState', function(msg) {  
+  console.log(msg)
+   if (msg == "QuizMode") {
+    //getQuestion?
+     console.log("A");
+    // populate and show answer buttons?
+   } else if (msg == "HoldingPage") {
+     //Show holding info.
+     console.log("B");
+   } else {
+    console.log("C!");
+   }
+ });
+
+
+
+
+</script>

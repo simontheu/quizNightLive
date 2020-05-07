@@ -61,29 +61,38 @@ app.get('/node_modules/easytimer/dist/easytimer.min.js', function(req, res) {
     res.sendFile(__dirname + '/node_modules/easytimer/dist/easytimer.min.js');
 });
 
+var quizState = 0;
+
+
 
 io.on('connection', function(socket){
-    socket.emit('hello');
+    socket.emit('currentQuizState', quizState);
     console.log("Connected to socket io")
-    socket.on('getQuestions', function(msg){
-        console.log("socket.on")
-        io.emit('getQuestions', questions);
+
+    socket.on('cueQuestion', function(msg){
+        console.log("cueQuestion>>cueQuestionForQuestionPage")
+        socket.broadcast.emit('newQuestion', msg);
     });
-    socket.on('newQuestion', function(msg){
-        console.log("newQuestion.on")
-        io.emit('newQuestion', msg);
+
+    socket.on('getQuestions', function(){
+        console.log("sending gotQuestions")
+        socket.emit('gotQuestions', questions);
     });
+
     socket.on('awayL3', function(msg){
         io.emit('awayL3', msg);
     });
+
     socket.on('answeredQuestion', function(msg){
         console.log(msg);
         io.emit('answeredQuestionReceived', {});
-    })
-    socket.on('testEmit', function(msg){
-        console.log(msg);
+    });
+
+    socket.on('test', function(msg){
+        console.log("fk");
         io.emit('testEmitReceived', {});
-    })
+    });
+
     console.log('connection received');
 });
 
